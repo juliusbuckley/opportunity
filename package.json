@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d dist",
-    "start": "babel-node src/server.js"
+    "start": "babel-node src/server.js",
+    "seed": "node_modules/.bin/sequelize db:seed:all"
   },
   "author": "freshly breemed",
   "license": "ISC",
@@ -18,12 +19,21 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "express": "^4.15.3",
+    "graphql": "^0.11.7",
+    "path": "^0.12.7",
+    "pg": "6.4.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-hot-loader": "^1.3.1",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.2",
     "redux": "^3.7.2",
+    "seedquelize": "^1.0.1",
+    "sequelize": "^4.22.15",
+    "sequelize-auto": "^0.4.29",
+    "sequelize-cli": "^3.1.0",
+    "sequelize-fixtures": "^0.6.0",
+    "sqlite3": "^3.1.13",
     "webpack": "^3.3.0",
     "webpack-dev-middleware": "^1.11.0",
     "webpack-hot-middleware": "^2.18.2"
