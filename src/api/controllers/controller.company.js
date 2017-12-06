@@ -1,4 +1,4 @@
-const sequelize = require('../../db')
+const sequelize = require('../../db/models/index')
 
 exports.getCompany = (req, res) => {
   // Quick example

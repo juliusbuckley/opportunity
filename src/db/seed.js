@@ -1,7 +1,7 @@
 const fs = require('fs')
-const sequelize = require('./index').sequelize
+const sequelize = require('./models/index').sequelize
 const sequelize_fixtures = require('sequelize-fixtures')
-const models = require('./models/index')
+const models = require('./seed/index')
 const seeds = require('seedquelize')
 
 // console.log(models)
