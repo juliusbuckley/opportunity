@@ -1,7 +1,8 @@
 /* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('business_stream', {
+/* jshint indent: 2 */
+const sequelize = require('../models/index').Sequelize
+const DataTypes = require('sequelize')
+module.exports = sequelize.define('business_stream', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -28,7 +29,4 @@ module.exports = function(sequelize, DataTypes) {
       type:DataTypes.DATE,
       allowNull: false
     }
-  }, {
-    tableName: 'business_stream'
   });
-};

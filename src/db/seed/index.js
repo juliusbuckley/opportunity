@@ -4,22 +4,30 @@ var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
 var basename  = path.basename(__filename);
+const sequelize_fixtures = require('sequelize-fixtures');
 var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config.json')[env];
-var db        = {};
+var db        = require('../models/index')
 
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
-let modules = [
-  // require(__dirname+ 'answer.js')
-]
-modules.forEach(module) => {
-  const model = module(sequelize, Sequelize, config)
-  db[model.name] = model
+let modules = {
+  'industry': db.industry
 }
+console.log(modules.industry)
+// db.Sequelize.sync()
+  // .then(()=>{
+// db.industry.sync()
+sequelize_fixtures.loadFile('/Users/macbookpro/Documents/HackReactor/Opp/src/db/seed/industry.json', modules)
+
+  // })
+// modules.forEach(module) => {
+//   const model = module(sequelize, Sequelize, config)
+//   db[model.name] = model
+// }
 // fs
 //   .readdirSync(__dirname)
 //   .filter(file => {

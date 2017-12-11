@@ -1,8 +1,8 @@
 /* jshint indent: 2 */
-'use strict';
+const sequelize = require('../models/index').Sequelize
+const DataTypes = require('sequelize')
 
-module.exports = function(sequelize, DataTypes) {
-  var JobPost = sequelize.define('job_post', {
+module.exports = sequelize.define('job_post', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -97,8 +97,4 @@ module.exports = function(sequelize, DataTypes) {
       type:DataTypes.DATE,
       allowNull: true
     }
-  }, {
-    tableName: 'job_post'
   });
-  return JobPost;
-};

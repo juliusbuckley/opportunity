@@ -1,6 +1,6 @@
 const app = require('express')()
 const webpack = require('webpack');
-const webpackConfig = require('./webpack.config.js');
+const webpackConfig = require('../webpack.config.js');
 const sequelize = require('./db/models/index');
 
 app.use(require('./api/routers/route.company'))

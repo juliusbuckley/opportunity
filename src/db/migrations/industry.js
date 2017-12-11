@@ -1,26 +1,24 @@
 /* jshint indent: 2 */
+const sequelize = require('../models/index').Sequelize
+const Sequelize = require('sequelize')
 
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('industry', {
+module.exports = sequelize.define('industry', {
     id: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: false,
       primaryKey: true
     },
     industry_name: {
-      type: DataTypes.TEXT,
+      type: Sequelize.TEXT,
       allowNull: true
     },
     // Timestamps
     createdAt: {
-      type:DataTypes.DATE,
+      type:Sequelize.DATE,
       allowNull: true
     },
     updatedAt: {
-      type:DataTypes.DATE,
+      type:Sequelize.DATE,
       allowNull: true
     }
-  }, {
-    tableName: 'industry'
   });
-};

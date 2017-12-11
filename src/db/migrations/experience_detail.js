@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('experience_detail', {
+const sequelize = require('../models/index').Sequelize
+const DataTypes = require('sequelize')
+module.exports = sequelize.define('experience_detail', {
     user_account_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -58,7 +58,4 @@ module.exports = function(sequelize, DataTypes) {
       type:DataTypes.DATE,
       allowNull: true
     }
-  }, {
-    tableName: 'experience_detail'
   });
-};

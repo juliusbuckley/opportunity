@@ -1,7 +1,8 @@
 /* jshint indent: 2 */
+const sequelize = require('../models/index').Sequelize
+const DataTypes = require('sequelize')
 
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('job_location', {
+module.exports = sequelize.define('job_location', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -36,7 +37,4 @@ module.exports = function(sequelize, DataTypes) {
       type:DataTypes.DATE,
       allowNull: true
     }
-  }, {
-    tableName: 'job_location'
   });
-};

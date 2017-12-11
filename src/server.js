@@ -1,4 +1,5 @@
 import http from 'http'
+require('dotenv').config()
 const app = require('./server-config')
 
 const server = http.createServer(app)
