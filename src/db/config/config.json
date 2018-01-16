@@ -1,0 +1,13 @@
+{
+  "production": {
+    "url":"postgres://vikozotg:GwwLg13EsvTH_oo80blP1oXRai40_6Kz@baasu.db.elephantsql.com:5432/vikozotg",
+    "dialect": "postgres"
+  },
+  "production1": {
+    "username": "vikozotg",
+    "password": "GwwLg13EsvTH_oo80blP1oXRai40_6Kz",
+    "database": "vikozotg",
+    "host": "baasu.db.elephantsql.com",
+    "dialect": "postgres"
+  }
+}

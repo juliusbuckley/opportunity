@@ -1,0 +1,16 @@
+[
+  {
+    "model" : "user_type",
+    "data":{
+      "id":1,
+      "user_type_name":"brand"
+      }
+    },
+    {
+      "model":"user_type",
+      "data": {
+        "id":2,
+        "user_type_name":"seeker"
+        }
+    }
+]
