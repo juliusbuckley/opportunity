@@ -24,6 +24,9 @@ module.exports = {
     path: path.join(__dirname,'www/src'),
     filename: 'bundle.js'
   },
+  node:{
+    __dirname: true
+  },
   watch: true,
   target: 'node',
   externals: [nodeModules],
@@ -47,7 +50,8 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
             "process.env": {
-                "BUILD_TARGET": JSON.stringify('server')
+                "BUILD_TARGET": JSON.stringify('server'),
+                "NODE_ENV": "production"
             }
         }),
         new Dotenv({

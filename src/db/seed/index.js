@@ -15,13 +15,43 @@ if (config.use_env_variable) {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 let modules = {
-  'industry': db.industry
+  'industry': db.industry,
+  'answer': db.answer,
+  'account': db.account,
+  'business_stream': db.business_stream,
+  'company_image': db.company_image,
+  'company': db.company,
+  'education_detail': db.education_detail,
+  'experience_detail': db.experience_detail,
+  'industry': db.industry,
+  'interview': db.interview,
+  'job_location': db.job_location,
+  'job_post_activity': db.job_post_activity,
+  'job_post_skill_set': db.job_post_skill_set,
+  'job_post': db.job_post,
+  'job_type': db.job_type,
+  'login': db.login,
+  'membership': db.membership,
+  'message': db.message,
+  'question_type': db.question_type,
+  'question': db.question,
+  'seeker_profile': db.seeker_profile,
+  'seeker_skill_set': db.seeker_skill_set,
+  'skill_set': db.skill_set,
+  'status': db.status,
+  'submission': db.submission,
+  'user': db.user,
+  'user_content': db.user_content,
+  'user_log': db.user_log,
+  'user_type': db.user_type
 }
-console.log(modules.industry)
+// for (const i in modules){
+//   console.log(i)
+// }
 // db.Sequelize.sync()
   // .then(()=>{
 // db.industry.sync()
-sequelize_fixtures.loadFile('/Users/macbookpro/Documents/HackReactor/Opp/src/db/seed/industry.json', modules)
+// sequelize_fixtures.loadFile('/Users/macbookpro/Documents/HackReactor/Opp/src/db/seed/'+modules[Object.keys(modules)[0]]+'.json', modules)
 
   // })
 // modules.forEach(module) => {

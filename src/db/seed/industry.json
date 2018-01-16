@@ -1,6 +1,72 @@
 [{
   "model":"industry",
   "data":
-    {"id":1,"industry_name":"Music", "createdAt":"1926-09-16","updatedAt":"1926-09-16"}
+    {
+      "id":1,
+      "industry_name":"Music"
+    }
+},{
+  "model":"industry",
+  "data":
+    {
+      "id":2,
+      "industry_name":"Fashion"
+    }
+},{
+  "model":"industry",
+  "data":
+    {
+      "id":3,
+      "industry_name":"Sports"
+    }
+},{
+  "model":"industry",
+  "data":
+    {
+      "id":4,
+      "industry_name":"Film"
+    }
+},{
+  "model":"industry",
+  "data":
+    {
+      "id":5,
+      "industry_name":"Social Media"
+    }
+},{
+  "model":"industry",
+  "data":
+    {
+      "id":6,
+      "industry_name":"Visual Artists"
+    }
+},{
+  "model":"industry",
+  "data":
+    {
+      "id":7,
+      "industry_name":"Dance"
+    }
+},{
+  "model":"industry",
+  "data":
+    {
+      "id":8,
+      "industry_name":"Public Relations"
+    }
+},{
+  "model":"industry",
+  "data":
+    {
+      "id":9,
+      "industry_name":"Comedy"
+    }
+},{
+    "model":"industry",
+    "data":
+    {
+      "id":10,
+      "industry_name":"Creative Writing"
+    }
 
 }]

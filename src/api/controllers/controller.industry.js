@@ -1,6 +1,6 @@
-var db = require('../../db/models/index'),
-  sequelize = db.sequelize,
-  Sequelize = db.Sequelize;
+// var db = require('../../db/models/index'),
+//   sequelize = db.sequelize,
+//   Sequelize = db.Sequelize;
 // var models = require('../../db/migrations')
 //
 // // const JobPost = require('../../db/models/job_post').JobPost

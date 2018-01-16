@@ -1,50 +1,394 @@
-[{"id":1,"business_stream_name":"Computer Software: Prepackaged Software","industry_id":9},
-{"id":2,"business_stream_name":"Major Pharmaceuticals","industry_id":3},
-{"id":3,"business_stream_name":"Environmental Services","industry_id":1},
-{"id":4,"business_stream_name":"Oil & Gas Production","industry_id":10},
-{"id":5,"business_stream_name":"n/a","industry_id":1},
-{"id":6,"business_stream_name":"Biotechnology: Biological Products (No Diagnostic Substances)","industry_id":6},
-{"id":7,"business_stream_name":"Environmental Services","industry_id":1},
-{"id":8,"business_stream_name":"Major Banks","industry_id":10},
-{"id":9,"business_stream_name":"Industrial Machinery/Components","industry_id":5},
-{"id":10,"business_stream_name":"Other Consumer Services","industry_id":7},
-{"id":11,"business_stream_name":"Real Estate Investment Trusts","industry_id":10},
-{"id":12,"business_stream_name":"Apparel","industry_id":2},
-{"id":13,"business_stream_name":"Computer Software: Prepackaged Software","industry_id":6},
-{"id":14,"business_stream_name":"Precious Metals","industry_id":7},
-{"id":15,"business_stream_name":"Metal Fabrications","industry_id":4},
-{"id":16,"business_stream_name":"n/a","industry_id":9},
-{"id":17,"business_stream_name":"Other Specialty Stores","industry_id":2},
-{"id":18,"business_stream_name":"Property-Casualty Insurers","industry_id":3},
-{"id":19,"business_stream_name":"Investment Managers","industry_id":5},
-{"id":20,"business_stream_name":"Medical/Dental Instruments","industry_id":4},
-{"id":21,"business_stream_name":"Telecommunications Equipment","industry_id":6},
-{"id":22,"business_stream_name":"Major Banks","industry_id":2},
-{"id":23,"business_stream_name":"Major Pharmaceuticals","industry_id":4},
-{"id":24,"business_stream_name":"Business Services","industry_id":6},
-{"id":25,"business_stream_name":"Biotechnology: Electromedical & Electrotherapeutic Apparatus","industry_id":9},
-{"id":26,"business_stream_name":"n/a","industry_id":9},
-{"id":27,"business_stream_name":"n/a","industry_id":6},
-{"id":28,"business_stream_name":"Electric Utilities: Central","industry_id":5},
-{"id":29,"business_stream_name":"Commercial Banks","industry_id":8},
-{"id":30,"business_stream_name":"Water Supply","industry_id":7},
-{"id":31,"business_stream_name":"Major Banks","industry_id":9},
-{"id":32,"business_stream_name":"n/a","industry_id":9},
-{"id":33,"business_stream_name":"Investment Bankers/Brokers/Service","industry_id":3},
-{"id":34,"business_stream_name":"n/a","industry_id":6},
-{"id":35,"business_stream_name":"Diversified Commercial Services","industry_id":8},
-{"id":36,"business_stream_name":"Industrial Machinery/Components","industry_id":4},
-{"id":37,"business_stream_name":"Department/Specialty Retail Stores","industry_id":1},
-{"id":38,"business_stream_name":"Beverages (Production/Distribution)","industry_id":5},
-{"id":39,"business_stream_name":"Plastic Products","industry_id":2},
-{"id":40,"business_stream_name":"Business Services","industry_id":9},
-{"id":41,"business_stream_name":"Farming/Seeds/Milling","industry_id":8},
-{"id":42,"business_stream_name":"n/a","industry_id":6},
-{"id":43,"business_stream_name":"Major Pharmaceuticals","industry_id":5},
-{"id":44,"business_stream_name":"Building operators","industry_id":6},
-{"id":45,"business_stream_name":"Natural Gas Distribution","industry_id":7},
-{"id":46,"business_stream_name":"Real Estate","industry_id":5},
-{"id":47,"business_stream_name":"Farming/Seeds/Milling","industry_id":1},
-{"id":48,"business_stream_name":"n/a","industry_id":4},
-{"id":49,"business_stream_name":"Marine Transportation","industry_id":2},
-{"id":50,"business_stream_name":"n/a","industry_id":1}]
+[
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 1,
+      "business_stream_name": "Computer Software: Prepackaged Software",
+      "industry_id": 9
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 2,
+      "business_stream_name": "Major Pharmaceuticals",
+      "industry_id": 3
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 3,
+      "business_stream_name": "Environmental Services",
+      "industry_id": 1
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 4,
+      "business_stream_name": "Oil & Gas Production",
+      "industry_id": 10
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 5,
+      "business_stream_name": "n/a",
+      "industry_id": 1
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 6,
+      "business_stream_name": "Biotechnology: Biological Products (No Diagnostic Substances)",
+      "industry_id": 6
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 7,
+      "business_stream_name": "Environmental Services",
+      "industry_id": 1
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 8,
+      "business_stream_name": "Major Banks",
+      "industry_id": 10
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 9,
+      "business_stream_name": "Industrial Machinery/Components",
+      "industry_id": 5
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 10,
+      "business_stream_name": "Other Consumer Services",
+      "industry_id": 7
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 11,
+      "business_stream_name": "Real Estate Investment Trusts",
+      "industry_id": 10
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 12,
+      "business_stream_name": "Apparel",
+      "industry_id": 2
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 13,
+      "business_stream_name": "Computer Software: Prepackaged Software",
+      "industry_id": 6
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 14,
+      "business_stream_name": "Precious Metals",
+      "industry_id": 7
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 15,
+      "business_stream_name": "Metal Fabrications",
+      "industry_id": 4
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 16,
+      "business_stream_name": "n/a",
+      "industry_id": 9
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 17,
+      "business_stream_name": "Other Specialty Stores",
+      "industry_id": 2
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 18,
+      "business_stream_name": "Property-Casualty Insurers",
+      "industry_id": 3
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 19,
+      "business_stream_name": "Investment Managers",
+      "industry_id": 5
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 20,
+      "business_stream_name": "Medical/Dental Instruments",
+      "industry_id": 4
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 21,
+      "business_stream_name": "Telecommunications Equipment",
+      "industry_id": 6
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 22,
+      "business_stream_name": "Major Banks",
+      "industry_id": 2
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 23,
+      "business_stream_name": "Major Pharmaceuticals",
+      "industry_id": 4
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 24,
+      "business_stream_name": "Business Services",
+      "industry_id": 6
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 25,
+      "business_stream_name": "Biotechnology: Electromedical & Electrotherapeutic Apparatus",
+      "industry_id": 9
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 26,
+      "business_stream_name": "n/a",
+      "industry_id": 9
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 27,
+      "business_stream_name": "n/a",
+      "industry_id": 6
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 28,
+      "business_stream_name": "Electric Utilities: Central",
+      "industry_id": 5
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 29,
+      "business_stream_name": "Commercial Banks",
+      "industry_id": 8
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 30,
+      "business_stream_name": "Water Supply",
+      "industry_id": 7
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 31,
+      "business_stream_name": "Major Banks",
+      "industry_id": 9
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 32,
+      "business_stream_name": "n/a",
+      "industry_id": 9
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 33,
+      "business_stream_name": "Investment Bankers/Brokers/Service",
+      "industry_id": 3
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 34,
+      "business_stream_name": "n/a",
+      "industry_id": 6
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 35,
+      "business_stream_name": "Diversified Commercial Services",
+      "industry_id": 8
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 36,
+      "business_stream_name": "Industrial Machinery/Components",
+      "industry_id": 4
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 37,
+      "business_stream_name": "Department/Specialty Retail Stores",
+      "industry_id": 1
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 38,
+      "business_stream_name": "Beverages (Production/Distribution)",
+      "industry_id": 5
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 39,
+      "business_stream_name": "Plastic Products",
+      "industry_id": 2
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 40,
+      "business_stream_name": "Business Services",
+      "industry_id": 9
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 41,
+      "business_stream_name": "Farming/Seeds/Milling",
+      "industry_id": 8
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 42,
+      "business_stream_name": "n/a",
+      "industry_id": 6
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 43,
+      "business_stream_name": "Major Pharmaceuticals",
+      "industry_id": 5
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 44,
+      "business_stream_name": "Building operators",
+      "industry_id": 6
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 45,
+      "business_stream_name": "Natural Gas Distribution",
+      "industry_id": 7
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 46,
+      "business_stream_name": "Real Estate",
+      "industry_id": 5
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 47,
+      "business_stream_name": "Farming/Seeds/Milling",
+      "industry_id": 1
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 48,
+      "business_stream_name": "n/a",
+      "industry_id": 4
+    }
+  },
+  {
+    "model": "business_stream",
+    "data": {
+      "id": 49,
+      "business_stream_name": "Marine Transportation",
+      "industry_id": 2
+    }
+  }
+]

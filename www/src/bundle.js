@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "8cf06730ea56f1de1944"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "266f3cda80c622016b1e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -845,11 +845,11 @@ exports.getCompany = (req, res) => {
 /***/ }),
 
 /***/ "./src/api/controllers/controller.industry.js":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-var db = __webpack_require__("./src/db/models/index.js"),
-  sequelize = db.sequelize,
-  Sequelize = db.Sequelize;
+// var db = require('../../db/models/index'),
+//   sequelize = db.sequelize,
+//   Sequelize = db.Sequelize;
 // var models = require('../../db/migrations')
 //
 // // const JobPost = require('../../db/models/job_post').JobPost
@@ -874,13 +874,13 @@ exports.getIndustryList = (req, res) => {
 /***/ }),
 
 /***/ "./src/api/controllers/controller.jobpost.js":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 // const sequelize = require('../../db/index')
-var db = __webpack_require__("./src/db/models/index.js"),
-  sequelize = db.sequelize,
-  Sequelize = db.Sequelize;
-const JobPost = __webpack_require__("./src/db/migrations/job_post.js").JobPost
+// var db = require('../../db/models/index'),
+//   sequelize = db.sequelize,
+//   Sequelize = db.Sequelize;
+// const JobPost = require('../../db/migrations/job_post').JobPost
 exports.getJob = (req, res) => {
   // Quick example
   // var query = req.body
@@ -888,11 +888,11 @@ exports.getJob = (req, res) => {
     // res.send("myTableRows")
   // }).catch((err) => {
   //   console.log(err)
-  // })
-  JobPost.findAll()
-    .then((result)=>{
-      res.send(result)
-      })
+  // // })
+  // JobPost.findAll()
+  //   .then((result)=>{
+  //     res.send(result)
+  //     })
 
       // console.log("result")
   // sequelize.getQueryInterface().showAllTables().then( function(data){
@@ -942,1438 +942,111 @@ module.exports = Router;
 
 /***/ }),
 
-/***/ "./src/db/migrations/answer.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const DataTypes = __webpack_require__("sequelize")
-
-module.exports = sequelize.define('answer', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    submission_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'submission',
-        key: 'id'
-      }
-    },
-    text_answer: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    href: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    question_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'question',
-        key: 'id'
-      }
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    user_account_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'user_account',
-        key: 'id'
-      }
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: false
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: false
-    }
-  }
-);
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/business_stream.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const DataTypes = __webpack_require__("sequelize")
-module.exports = sequelize.define('business_stream', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    business_stream_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    industry_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'industry',
-        key: 'id'
-      }
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: false
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: false
-    }
-  });
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/company.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const DataTypes = __webpack_require__("sequelize")
-module.exports =  sequelize.define('company', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    company_name: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    profile_description: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    business_stream_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'business_stream',
-        key: 'id'
-      }
-    },
-    establishment_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
-    company_website_url: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    industry_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'industry',
-        key: 'id'
-      }
-    },
-    city_name: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    state_name: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    zip_code: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    street_address: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  });
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/company_image.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const DataTypes = __webpack_require__("sequelize")
-module.exports = sequelize.define('company_image', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    company_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'company',
-        key: 'id'
-      }
-    },
-    company_image: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  });
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/education_detail.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const DataTypes = __webpack_require__("sequelize")
-
-module.exports =  sequelize.define('education_detail', {
-    user_account_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'seeker_profile',
-        key: 'user_account_id'
-      }
-    },
-    certificate_degree_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      primaryKey: true
-    },
-    major: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      primaryKey: true
-    },
-    institute_university_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    completion_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: true
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  });
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/experience_detail.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const DataTypes = __webpack_require__("sequelize")
-module.exports = sequelize.define('experience_detail', {
-    user_account_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'seeker_profile',
-        key: 'user_account_id'
-      }
-    },
-    is_current_job: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
-    start_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-      primaryKey: true
-    },
-    end_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-      primaryKey: true
-    },
-    job_title: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    company_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    job_location_city: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    job_location_state: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    job_location_country: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  });
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/industry.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const Sequelize = __webpack_require__("sequelize")
-
-module.exports = sequelize.define('industry', {
-    id: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    industry_name: {
-      type: Sequelize.TEXT,
-      allowNull: true
-    },
-    // Timestamps
-    createdAt: {
-      type:Sequelize.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:Sequelize.DATE,
-      allowNull: true
-    }
-  });
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/interview.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const DataTypes = __webpack_require__("sequelize")
-module.exports = sequelize.define('interview', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    question_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'question',
-        key: 'id'
-      }
-    },
-    company_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'company',
-        key: 'id'
-      }
-    },
-    submissions: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    job_status: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  });
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/job_location.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const DataTypes = __webpack_require__("sequelize")
-
-module.exports = sequelize.define('job_location', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    street_address: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    city: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    state: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    country: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    zip: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  });
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/job_post.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const DataTypes = __webpack_require__("sequelize")
-
-module.exports = sequelize.define('job_post', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    posted_by_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'user_account',
-        key: 'id'
-      }
-    },
-    job_type_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'job_type',
-        key: 'id'
-      }
-    },
-    company_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'company',
-        key: 'id'
-      }
-    },
-    is_company_name_hidden: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
-    created_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
-    job_description: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    job_location_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'job_location',
-        key: 'id'
-      }
-    },
-    is_active: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
-    payment_amount: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    payment_type: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    duration: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    start_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
-    end_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: true
-    },
-    tentative_efforts_required_in_hours: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    interview_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    job_status: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  });
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/job_post_activity.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const DataTypes = __webpack_require__("sequelize")
-
-module.exports = sequelize.define('job_post_activity', {
-    user_account_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'user_account',
-        key: 'id'
-      }
-    },
-    job_post_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'job_post',
-        key: 'id'
-      }
-    },
-    apply_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  });
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/job_post_skill_set.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const DataTypes = __webpack_require__("sequelize")
-
-module.exports = sequelize.define('job_post_skill_set', {
-    skill_set_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'skill_set',
-        key: 'id'
-      }
-    },
-    job_post_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'job_post',
-        key: 'id'
-      }
-    },
-    skill_level: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  });
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/job_type.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const DataTypes = __webpack_require__("sequelize")
-
-module.exports = sequelize.define('job_type', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    job_type: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  });
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/message.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-/* jshint indent: 2 */
-const sequelize = __webpack_require__("./src/db/models/index.js").Sequelize
-const DataTypes = __webpack_require__("sequelize")
-
-module.exports = sequelize.define('message', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    seeker_user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    company_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    hire_manager_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    message_time: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    message_text: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    job_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    from_hire_manger: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
-    job_post_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'job_post',
-        key: 'id'
-      }
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  });
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/question.js":
+/***/ "./src/db/config/config.json":
 /***/ (function(module, exports) {
 
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('question', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    question_text: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    question_type: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'question_type',
-        key: 'id'
-      }
-    },
-    question_tip: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    time_limit: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    video: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    company_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'company',
-        key: 'id'
-      }
-    },
-    job_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'job_post',
-        key: 'id'
-      }
-    },
-    created_by: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    user_account_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'user_account',
-        key: 'id'
-      }
-    },
-    interview_id: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  }, {
-    tableName: 'question'
-  });
-};
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/question_type.js":
-/***/ (function(module, exports) {
-
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('question_type', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  }, {
-    tableName: 'question_type'
-  });
-};
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/seeker_profile.js":
-/***/ (function(module, exports) {
-
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('seeker_profile', {
-    user_account_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'user_account',
-        key: 'id'
-      }
-    },
-    current_salary: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    is_annually_monthly: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true
-    },
-    currency: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    // Timestamps
-    createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE,  // Timestamps
-      createdAt: {
-        type:DataTypes.DATE,
-        allowNull: true
-      },
-      updatedAt: {
-        type:DataTypes.DATE,
-        allowNull: true
-      }
-    }, {
-    tableName: 'seeker_profile'
-  });
-};
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/seeker_skill_set.js":
-/***/ (function(module, exports) {
-
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('seeker_skill_set', {
-    user_account_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'seeker_profile',
-        key: 'user_account_id'
-      }
-    },
-    skill_set_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'skill_set',
-        key: 'id'
-      }
-    },
-    skill_level: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  }, {
-    tableName: 'seeker_skill_set'
-  });
-};
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/skill_set.js":
-/***/ (function(module, exports) {
-
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('skill_set', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    skill_set_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  }, {
-    tableName: 'skill_set'
-  });
-};
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/status.js":
-/***/ (function(module, exports) {
-
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('status', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    status_name: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  }, {
-    tableName: 'status'
-  });
-};
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/submission.js":
-/***/ (function(module, exports) {
-
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('submission', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    seeker_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'user_account',
-        key: 'id'
-      }
-    },
-    company_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'company',
-        key: 'id'
-      }
-    },
-    media_content: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    job_post_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'job_post',
-        key: 'id'
-      }
-    },
-    status: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    status_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'status',
-        key: 'id'
-      }
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  }, {
-    tableName: 'submission'
-  });
-};
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/user_account.js":
-/***/ (function(module, exports) {
-
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('user_account', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    user_type_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'user_type',
-        key: 'id'
-      }
-    },
-    email: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    first_name: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    last_name: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    password: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    password_salt: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    password_hash_algorithm: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    date_of_birth: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
-    gender: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    is_active: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
-    phone_number: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    sms_notification_active: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
-    email_notification_active: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
-    user_image: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    registration_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
-    twitter_handle: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    instagram_handle: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    website_url: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    facebook_url: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  }, {
-    tableName: 'user_account'
-  });
-};
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/user_content.js":
-/***/ (function(module, exports) {
-
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('user_content', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'user_account',
-        key: 'id'
-      }
-    },
-    user_media: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  }, {
-    tableName: 'user_content'
-  });
-};
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/user_log.js":
-/***/ (function(module, exports) {
-
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('user_log', {
-    user_account_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'user_account',
-        key: 'id'
-      }
-    },
-    last_login_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
-    last_job_apply_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: true
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  }, {
-    tableName: 'user_log'
-  });
-};
-
-
-/***/ }),
-
-/***/ "./src/db/migrations/user_type.js":
-/***/ (function(module, exports) {
-
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('user_type', {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    user_type_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    // Timestamps
-    createdAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type:DataTypes.DATE,
-      allowNull: true
-    }
-  }, {
-    tableName: 'user_type'
-  });
-};
-
+module.exports = {"production":{"url":"postgres://vikozotg:GwwLg13EsvTH_oo80blP1oXRai40_6Kz@baasu.db.elephantsql.com:5432/vikozotg","dialect":"postgres"},"production1":{"username":"vikozotg","password":"GwwLg13EsvTH_oo80blP1oXRai40_6Kz","database":"vikozotg","host":"baasu.db.elephantsql.com","dialect":"postgres"}}
 
 /***/ }),
 
 /***/ "./src/db/models/index.js":
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(__filename) {const Sequelize = __webpack_require__("sequelize")
-var db = {}
-const path = __webpack_require__("path")
+"use strict";
+/* WEBPACK VAR INJECTION */(function(__filename, __dirname) {
+
+var fs        = __webpack_require__("fs");
+var path      = __webpack_require__("path");
+var Sequelize = __webpack_require__("sequelize");
 var basename  = path.basename(__filename);
-const fs = __webpack_require__("fs")
+var env       =  'development' || "postgres://vikozotg:GwwLg13EsvTH_oo80blP1oXRai40_6Kz@baasu.db.elephantsql.com:5432/vikozotg";
+var config    = __webpack_require__("./src/db/config/config.json")
+var db        = {};
 
-var sequelize = new Sequelize("postgres://ymemsnvl:sWk06AobVzqlDofPhQ93rJEJh8vlotJ5@baasu.db.elephantsql.com:5432/ymemsnvl")
-module.exports.Sequelize = sequelize;
+var sequelize = new Sequelize("postgres://vikozotg:GwwLg13EsvTH_oo80blP1oXRai40_6Kz@baasu.db.elephantsql.com:5432/vikozotg", config.production);
 
-// var sequelize = new Sequelize('felly','postgres','123kid',{
-//
-//   host: 'localhost',
-//   dialect: 'postgres',
-//    pool: {
-//      max: 5,
-//      min: 0,
-//      acquire: 30000,
-//      idle: 10000
-//    },
-//  // http://docs.sequelizejs.com/manual/tutorial/querying.html#operators
-//  operatorsAliases: false
-// });
+fs
+  .readdirSync(__dirname)
+  .filter(file => {
+    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+  })
+  .forEach(file => {
+    var model = sequelize['import'](path.join('../../src/db/models/'+file));
+    db[model.name] = model;
+  });
 
-// console.log(path)
-// const modules = require('./answer.js')
-// const JobPost = require('./job_post')
-// console.log("file")
-//
-// for (var i in files) {
-//   // var definition = require('./application/models/' + files[i]).Model;
-//   console.log('Model Loaded: ' + i);
-// }
-// console.log(files)
-// const pathy = '/Users/macbookpro/Documents/HackReactor/Opp/src/db/migrations'
-// fs.readdirSync(pathy)
-//   .filter(file => {
-//     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-//     console.log(file)
-//   })
-//   .forEach(file => {
-//     var model = sequelize['import'](path.join(pathy, file));
-//     db[model.name] = model;
-//     console.log(file)
-//   });
-// db.industry.sync()
-// // console.log(__dirname)
-//
-// Object.keys(db).forEach(modelName => {
-//   if (db[modelName].associate) {
-//     db[modelName].associate(db);
-//   }
-// });
-// console.log(db)
-//
-// modules.forEach(module) => {
-//   const model = module(sequelize, Sequelize, config)
-//   db[model.name] = model
-// }
-// // ...
-const answer = __webpack_require__("./src/db/migrations/answer.js")
-const business_stream = __webpack_require__("./src/db/migrations/business_stream.js")
-const company_image = __webpack_require__("./src/db/migrations/company_image.js")
-const company = __webpack_require__("./src/db/migrations/company.js")
-const education_detail = __webpack_require__("./src/db/migrations/education_detail.js")
-const experience_detail = __webpack_require__("./src/db/migrations/experience_detail.js")
-const industry = __webpack_require__("./src/db/migrations/industry.js")
-const interview = __webpack_require__("./src/db/migrations/interview.js")
-const job_location = __webpack_require__("./src/db/migrations/job_location.js")
-const job_post_activity = __webpack_require__("./src/db/migrations/job_post_activity.js")
-const job_post_skill_set = __webpack_require__("./src/db/migrations/job_post_skill_set.js")
-const job_post = __webpack_require__("./src/db/migrations/job_post.js")
-const job_type = __webpack_require__("./src/db/migrations/job_type.js")
-const message = __webpack_require__("./src/db/migrations/message.js")
-const question_type = __webpack_require__("./src/db/migrations/question_type.js")
-const question = __webpack_require__("./src/db/migrations/question.js")
-const seeker_profile = __webpack_require__("./src/db/migrations/seeker_profile.js")
-const seeker_skill_set = __webpack_require__("./src/db/migrations/seeker_skill_set.js")
-const skill_set = __webpack_require__("./src/db/migrations/skill_set.js")
-const status = __webpack_require__("./src/db/migrations/status.js")
-const submission = __webpack_require__("./src/db/migrations/submission.js")
-const user_account = __webpack_require__("./src/db/migrations/user_account.js")
-const user_content = __webpack_require__("./src/db/migrations/user_content.js")
-const user_log = __webpack_require__("./src/db/migrations/user_log.js")
-const user_type = __webpack_require__("./src/db/migrations/user_type.js")
+Object.keys(db).forEach(modelName => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
+console.log(db)
+db.account.hasOne(db.company_image)
+db.account.hasMany(db.job_post,{as:'CompanyJobPost'})
+db.account.belongsTo(db.membership)
 
-// Sync all ../db/models that aren't already in the database
+db.answer.belongsTo(db.question)
+db.answer.belongsTo(db.submission)
 
-// sequelize.sync().then(() => {
-//   // ok ... everything is nice!
-//   console.log('created big fella')
-// }).catch(error => {
-//   // oooh, did you enter wrong database credentials?
-//   console.log('not created big fella'+ error)
-//
-// })
-// sequelize.getQueryInterface().describeTable('company').success( … )
-// => this will result in the structure of a table with all it's attributes and
-// JobPost().findAll()
-//  .then((result)=>{
-//    console.log(result)
-//    })
+db.education_detail.belongsTo(db.seeker_user)
+db.experience_detail.belongsTo(db.seeker_user)
 
-// => this will result in an array with all existing table names
+db.group.belongsTo(db.account,{as:'related_account_id'})
 
-// console.log(JSON.parse(db.industry))
-// db.job_post = job_post;
-// module.exports = db;// module.exports.JobPost = JobPost
-module.exports.industry = industry;
-// const seed = require('../seed')()
+db.job_post.belongsTo(db.job_location)
+db.job_post.belongsTo(db.interview)
+db.job_post.belongsTo(db.job_post_skill_set)
+db.job_post.belongsTo(db.job_type)
+db.job_post.belongsTo(db.account)
+db.job_post.belongsTo(db.membership,{as: 'from_id'})
 
-/* WEBPACK VAR INJECTION */}.call(exports, "/index.js"))
+
+db.job_post_skill_set.belongsTo(db.skill_set)
+db.job_post_skill_set.belongsTo(db.job_post)
+
+db.interview.belongsTo(db.question)
+db.industry.hasMany(db.business_stream)
+db.membership.hasMany(db.job_post,{as: 'CreatedJobPosts'})
+db.membership.hasOne(db.login, {as: 'related_membership_id'})
+db.membership.hasOne(db.company_user)
+db.membership.belongsTo(db.account)
+// membership.belongsTo(account)
+
+db.account.hasOne(db.membership, {as: 'related_account_id'})
+db.group.hasOne(db.membership, {as: 'related_group_id'})
+db.seeker_user.hasOne(db.membership, {as: 'related_seeker_id'})
+db.message.belongsTo(db.job_post)
+
+db.membership.hasOne(db.message, {as: 'from_id'})
+
+// question.hasMany(answer)
+db.question.belongsTo(db.account)
+db.question.belongsTo(db.job_post)
+db.question_order.belongsTo(db.question)
+
+db.seeker_skill_set.belongsTo(db.seeker_user)
+db.seeker_skill_set.belongsTo(db.skill_set)
+db.seeker_skill_set.belongsTo(db.skill_set)
+
+db.seeker_user.belongsTo(db.membership)
+db.seeker_user.belongsTo(db.membership)
+
+db.submission.belongsTo(db.job_post)
+db.submission.belongsTo(db.status)
+db.submission.belongsTo(db.account)
+db.seeker_user.hasMany(db.submission,{as: 'Submissions'})
+
+// account.belongsTo(membership)
+db.question.hasOne(db.question_type)
+db.question.belongsTo(db.question_type)
+
+// console.log(db.)
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
+module.exports = db;
+
+/* WEBPACK VAR INJECTION */}.call(exports, "/index.js", "src/db/models"))
 
 /***/ }),
 
@@ -2456,6 +1129,9 @@ module.exports = {
     path: path.join(__dirname,'www/src'),
     filename: 'bundle.js'
   },
+  node:{
+    __dirname: true
+  },
   watch: true,
   target: 'node',
   externals: [nodeModules],
@@ -2479,7 +1155,8 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
             "process.env": {
-                "BUILD_TARGET": JSON.stringify('server')
+                "BUILD_TARGET": JSON.stringify('server'),
+                "NODE_ENV": "production"
             }
         }),
         new Dotenv({
@@ -2490,7 +1167,7 @@ module.exports = {
 
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, "/"))
+/* WEBPACK VAR INJECTION */}.call(exports, ""))
 
 /***/ }),
 
