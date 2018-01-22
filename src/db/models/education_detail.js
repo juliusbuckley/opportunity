@@ -1,21 +1,21 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var education_detail = sequelize.define('education_detail', {
-    certificate_degree_name: DataTypes.STRING,
+  var educationDetail = sequelize.define('educationDetail', {
+    certificateDegreeName: DataTypes.STRING,
     major: DataTypes.STRING,
-    completion_date: DataTypes.DATE,
-    institute_name: DataTypes.STRING,
-    city: DataTypes.STRING,
-    state: DataTypes.STRING,
-    state: DataTypes.STRING,
-    country: DataTypes.STRING,
+    completionDate: DataTypes.DATE,
+    institutionName: DataTypes.STRING,
+    cityName: DataTypes.STRING,
+    stateName: DataTypes.STRING,
+    countryName: DataTypes.STRING,
     description: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        educationDetail.belongsTo(models.seekerUser)
       }
     }
   });
-  return education_detail;
+  return educationDetail;
 };

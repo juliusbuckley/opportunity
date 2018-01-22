@@ -1,36 +1,45 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('experience_details', {
+    return queryInterface.createTable('experienceDetails', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      is_current_job: {
+      isCurrentJob: {
         type: Sequelize.BOOLEAN
       },
-      start_date: {
+      startDate: {
         type: Sequelize.DATE
       },
-      job_title: {
+      jobTitle: {
         type: Sequelize.STRING
       },
-      institution_name: {
+      institutionName: {
         type: Sequelize.STRING
       },
-      city: {
-        type: Sequelize.STRING
+      cityName: {
+        type: Sequelize.STRING,
+        allowNull: true
       },
-      state: {
-        type: Sequelize.STRING
+      stateName: {
+        type: Sequelize.STRING,
+        allowNull: true
       },
-      country: {
-        type: Sequelize.STRING
+      countryName: {
+        type: Sequelize.STRING,
+        allowNull: true
       },
       description: {
         type: Sequelize.STRING
+      },
+      seeker_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'seekerUsers'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -43,6 +52,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('experience_details');
+    return queryInterface.dropTable('experienceDetails');
   }
 };

@@ -1,11 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var job_post_skill_set = sequelize.define('job_post_skill_set', {}, {
+  var jobPostSkillSet = sequelize.define('jobPostSkillSet', {}, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        jobPostSkillSet.belongsTo(models.skillSet)
+        // jobPostSkillSet.belongsTo(models.jobPost)
       }
     }
   });
-  return job_post_skill_set;
+  return jobPostSkillSet;
 };

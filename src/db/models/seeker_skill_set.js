@@ -1,11 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var seeker_skill_set = sequelize.define('seeker_skill_set', {}, {
+  var seekerSkillSet = sequelize.define('seekerSkillSet', {}, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        seekerSkillSet.belongsTo(models.seekerUser)
+        seekerSkillSet.belongsTo(models.skillSet)
+        seekerSkillSet.belongsTo(models.skillSet)
       }
     }
   });
-  return seeker_skill_set;
+  return seekerSkillSet;
 };

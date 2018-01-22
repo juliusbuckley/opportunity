@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var business_stream = sequelize.define('business_stream', {
-    business_stream_name: DataTypes.STRING
+  var businessStream = sequelize.define('businessStream', {
+    businessStreamName: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
@@ -9,5 +9,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  return business_stream;
+  return businessStream;
 };

@@ -8,11 +8,23 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      text_answer: {
+      textAnswer: {
         type: Sequelize.STRING
       },
       href: {
         type: Sequelize.STRING
+      },
+      questionId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'questions'
+        }
+      },
+      submissionId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'submissions'
+        }
       },
       createdAt: {
         allowNull: false,

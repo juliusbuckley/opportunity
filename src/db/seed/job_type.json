@@ -1,1 +1,1 @@
-[{"model":"job_type","data":{"id":1,"job_type":"Gig"}},{"model":"job_type","data":{"id":2,"job_type":"Part-Time"}},{"model":"job_type","data":{"id":3,"job_type":"Full-Time"}}]
+[{"model":"jobType","data":{"id":1,"jobType":"Gig"}},{"model":"jobType","data":{"id":2,"jobType":"Part-Time"}},{"model":"jobType","data":{"id":3,"jobType":"Full-Time"}}]

@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var company_image = sequelize.define('company_image', {
-    company_image: DataTypes.STRING
+  var companyImage = sequelize.define('companyImage', {
+    companyImage: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
@@ -9,5 +9,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  return company_image;
+  return companyImage;
 };

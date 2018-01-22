@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('job_post_skill_sets', {
+    return queryInterface.createTable('jobPostSkillSets', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -19,6 +19,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('job_post_skill_sets');
+    return queryInterface.dropTable('jobPostSkillSets');
   }
 };

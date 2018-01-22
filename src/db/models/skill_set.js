@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var skill_set = sequelize.define('skill_set', {
-    skill_set_name: DataTypes.STRING
+  var skillSet = sequelize.define('skillSet', {
+    skillSetName: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
@@ -9,5 +9,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  return skill_set;
+  return skillSet;
 };

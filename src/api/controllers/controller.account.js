@@ -1,8 +1,8 @@
-var industry = require('../../db/models/index').industry;
+var businessStream = require('../../db/models/index').businessStream;
 // var models = require('../../db/migrations')
 //
 // // const JobPost = require('../../db/models/jobPost').JobPost
-exports.getIndustryList = (req, res) => {
+exports.getAccount  = (req, res) => {
 //   // Quick example
 //   // var query = req.body
 //   // sequelize.query("SELECT * FROM industry").then(myTableRows => {
@@ -17,12 +17,17 @@ exports.getIndustryList = (req, res) => {
   // sequelize.getQueryInterface().showAllTables().then( function(data){
   //   console.log(data)
   // } )
+  businessStream.findAll().then((data)=>{
+    res.send(data)
+  })
 }
-exports.addIndustry = (req,res) => {
-  var newIndustry = industry.build({
-  industry_name: 'Math'
-});
-newIndustry.save().then(function() {
-  // Do stuffs after data persists
-})
+exports.addAccount = (req,res) => {
+  console.log(req.body)
+  // var newAccount = businessStream.build({
+  //   businessStream_name: 'Math1',
+  //   industryIdd: 1
+  // });
+  // newAccount.save().then(function() {
+  //   // Do stuffs after data persists
+  // })
 }

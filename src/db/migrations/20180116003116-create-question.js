@@ -8,19 +8,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      question_text: {
+      questionText: {
         type: Sequelize.STRING
       },
-      question_tip: {
+      questionTip: {
         type: Sequelize.STRING
       },
-      time_limit: {
+      timeLimit: {
         type: Sequelize.INTEGER
       },
-      video_href: {
+      videoHref: {
         type: Sequelize.STRING
       },
-      created_by: {
+      createdBy: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -34,6 +34,11 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('questions');
+    return queryInterface.dropTable('questions', {
+
+        force: true,
+        cascade: true,
+
+    });
   }
 };

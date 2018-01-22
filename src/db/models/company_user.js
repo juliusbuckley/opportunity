@@ -1,12 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var company_user = sequelize.define('company_user', {
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    user_name: DataTypes.STRING,
-    is_active: DataTypes.BOOLEAN,
-    sms_notification_active: DataTypes.BOOLEAN,
-    email_notification_active: DataTypes.BOOLEAN
+  var companyUser = sequelize.define('companyUser', {
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    userName: DataTypes.STRING,
+    isActive: DataTypes.BOOLEAN,
+    smsNotificationActive: DataTypes.BOOLEAN,
+    emailNotificationActive: DataTypes.BOOLEAN
   }, {
     classMethods: {
       associate: function(models) {
@@ -14,5 +14,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  return company_user;
+  return companyUser;
 };

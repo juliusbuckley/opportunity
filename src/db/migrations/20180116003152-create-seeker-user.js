@@ -1,35 +1,32 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('seeker_users', {
+    return queryInterface.createTable('seekerUsers', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      first_name: {
+      firstName: {
         type: Sequelize.STRING
       },
-      last_name: {
+      lastName: {
         type: Sequelize.STRING
       },
-      user_name: {
+      userName: {
         type: Sequelize.STRING
       },
       gender: {
         type: Sequelize.STRING
       },
-      user_name: {
-        type: Sequelize.STRING
-      },
-      is_active: {
+      isActive: {
         type: Sequelize.BOOLEAN
       },
-      sms_notification_active: {
+      smsNotificationActive: {
         type: Sequelize.BOOLEAN
       },
-      email_notification_active: {
+      emailNotificationActive: {
         type: Sequelize.BOOLEAN
       },
       certificate_degree_name: {
@@ -64,6 +61,11 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('seeker_users');
+    return queryInterface.dropTable('seekerUsers', {
+
+        force: true,
+        cascade: true,
+
+    });
   }
 };

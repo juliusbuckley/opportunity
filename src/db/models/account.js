@@ -1,18 +1,21 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var account = sequelize.define('account', {
-    company_name: DataTypes.STRING,
-    zip_code: DataTypes.INTEGER,
-    city_name: DataTypes.STRING,
-    state_name: DataTypes.STRING,
-    zip_code: DataTypes.INTEGER,
-    street_address: DataTypes.STRING,
-    profile_description: DataTypes.STRING,
-    establishment_date: DataTypes.DATE
+    companyName: DataTypes.STRING,
+    zipCode: DataTypes.INTEGER,
+    cityName: DataTypes.STRING,
+    stateName: DataTypes.STRING,
+    streetAddress: DataTypes.STRING,
+    profileDescription: DataTypes.STRING,
+    establishmentDate: DataTypes.DATE
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        account.hasMany(models.companyImage)
+        account.hasMany(models.jobPost)
+        // account.hasMany(models.membership)
+        account.hasOne(models.membership, {as: 'relatedAccount'})
       }
     }
   });

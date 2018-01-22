@@ -8,11 +8,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      group_name: {
+      groupName: {
         type: Sequelize.STRING
       },
-      plan_level: {
+      planLevel: {
         type: Sequelize.INTEGER
+      },
+      relatedAccountId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'accounts'
+        }
       },
       createdAt: {
         allowNull: false,

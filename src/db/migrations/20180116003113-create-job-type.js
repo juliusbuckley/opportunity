@@ -1,14 +1,14 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('job_types', {
+    return queryInterface.createTable('jobTypes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      job_type: {
+      jobTypeName: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -22,6 +22,11 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('job_types');
+    return queryInterface.dropTable('jobTypes', {
+
+        force: true,
+        cascade: true,
+
+    });
   }
 };

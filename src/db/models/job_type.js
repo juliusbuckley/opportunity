@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var job_type = sequelize.define('job_type', {
-    job_type: DataTypes.STRING
+  var jobType = sequelize.define('jobType', {
+    jobTypeName: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
@@ -9,5 +9,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  return job_type;
+  return jobType;
 };

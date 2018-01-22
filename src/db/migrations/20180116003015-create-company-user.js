@@ -1,30 +1,36 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('company_users', {
+    return queryInterface.createTable('companyUsers', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      first_name: {
+      firstName: {
         type: Sequelize.STRING
       },
-      last_name: {
+      lastName: {
         type: Sequelize.STRING
       },
-      user_name: {
+      userName: {
         type: Sequelize.STRING
       },
-      is_active: {
+      isActive: {
         type: Sequelize.BOOLEAN
       },
-      sms_notification_active: {
+      smsNotificationActive: {
         type: Sequelize.BOOLEAN
       },
-      email_notification_active: {
+      emailNotificationActive: {
         type: Sequelize.BOOLEAN
+      },
+      membershipId : {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'memberships'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +43,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('company_users');
+    return queryInterface.dropTable('companyUsers');
   }
 };

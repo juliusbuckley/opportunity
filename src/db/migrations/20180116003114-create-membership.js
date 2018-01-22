@@ -8,17 +8,29 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      related_seeker_id: {
+      relatedSeekerId: {
         type: Sequelize.INTEGER
       },
-      account_phone_number: {
+      accountPhoneNumber: {
         type: Sequelize.STRING
       },
-      account_email_number: {
+      accountEmailAddress: {
         type: Sequelize.STRING
       },
-      is_seeker: {
+      isSeeker: {
         type: Sequelize.BOOLEAN
+      },
+      relatedAccountId :{
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'accounts'
+        }
+      },
+      relatedGroupId :{
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'groups'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -31,6 +43,11 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('memberships');
+    return queryInterface.dropTable('memberships', {
+
+        force: true,
+        cascade: true,
+
+    });
   }
 };
