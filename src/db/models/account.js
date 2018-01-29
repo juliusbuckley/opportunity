@@ -1,21 +1,47 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var account = sequelize.define('account', {
-    companyName: DataTypes.STRING,
-    zipCode: DataTypes.INTEGER,
-    cityName: DataTypes.STRING,
-    stateName: DataTypes.STRING,
-    streetAddress: DataTypes.STRING,
-    profileDescription: DataTypes.STRING,
-    establishmentDate: DataTypes.DATE
+    companyName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    zipCode: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    cityName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    stateName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    streetAddress: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    profileDescription: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    establishmentYear: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        account.hasMany(models.companyImage)
-        account.hasMany(models.jobPost)
-        // account.hasMany(models.membership)
-        account.hasOne(models.membership, {as: 'relatedAccount'})
+        account.hasMany(models.companyImage, {allowNull: false})
+        account.hasMany(models.jobPost, {allowNull: false})
+        account.hasMany(models.membership, {allowNull: false})
+        // account.hasOne(models.membership, {as: 'relatedAccount'})
+      }
+    },
+    instanceMethods: {
+      getInfo: function (){
+        return this.companyName + ' is located in '+ this.cityName;
       }
     }
   });

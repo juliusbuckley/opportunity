@@ -1,12 +1,15 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var interview = sequelize.define('interview', {
-    interview_name: DataTypes.STRING
+    interviewName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        interview.hasMany(models.question)
+        interview.hasMany(models.question, {allowNull: false})
       }
     }
   });

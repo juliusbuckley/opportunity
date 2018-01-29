@@ -1,8 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var message = sequelize.define('message', {
-    bodyText: DataTypes.STRING,
-    subjectName: DataTypes.STRING
+    bodyText: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    subjectName: {
+      type: DataTypes.STRING
+    }
   }, {
     classMethods: {
       associate: function(models) {

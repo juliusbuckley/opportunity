@@ -8,26 +8,28 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      relatedSeekerId: {
-        type: Sequelize.INTEGER
-      },
       accountPhoneNumber: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       accountEmailAddress: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       isSeeker: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull: false
       },
-      relatedAccountId :{
+      accountId :{
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'accounts'
         }
       },
-      relatedGroupId :{
+      groupId :{
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'groups'
         }

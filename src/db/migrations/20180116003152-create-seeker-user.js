@@ -9,45 +9,58 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       firstName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       lastName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       userName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       gender: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       isActive: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+      },
+      membershipId:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references:{
+          model: 'memberships'
+        }
       },
       smsNotificationActive: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull: false
       },
       emailNotificationActive: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull: false
       },
-      certificate_degree_name: {
+      dateOfBirth: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      userImage: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      twitterHandle: {
         type: Sequelize.STRING
       },
-      date_of_birth: {
-        type: Sequelize.DATE
-      },
-      user_image: {
+      instragramHandle: {
         type: Sequelize.STRING
       },
-      twitter_handle: {
+      websiteUrl: {
         type: Sequelize.STRING
       },
-      instragram_handle: {
-        type: Sequelize.STRING
-      },
-      website_url: {
-        type: Sequelize.STRING
-      },
-      facebook_url: {
+      facebookUrl: {
         type: Sequelize.STRING
       },
       createdAt: {

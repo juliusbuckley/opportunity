@@ -1,7 +1,8 @@
 const fs = require('fs')
 const db = require('./models/index')
 const sequelize_fixtures = require('sequelize-fixtures')
-const models = require('./seed/index')
+const models = require('./models/index')
+// console.log(models)
 const seeds = require('seedquelize')
 const path = require('path')
 
@@ -35,6 +36,8 @@ let modules = {
 }
   // sequelize_fixtures.loadFile(__dirname+'/seed/'+Object.keys(modules)[0]+'.json', models)
   // .then(()=>{
+  //   console.log('freshly')
+  // })
   //   console.log('breeming')
   //   sequelize_fixtures.loadFile(__dirname+'/seed/'+Object.keys(modules)[1]+'.json', models)
   //   .then(()=>{
@@ -70,7 +73,7 @@ let modules = {
 const seed = function(model){
   // console.log('here')
   // if(model){
-    fs.readFile(path.join(__dirname+'/seed/'+model+'.json'),'utf8',(err,data)=>{
+    fs.readFile(path.join(__dirname+'/seed/industry.json'),'utf8',(err,data)=>{
     //   if(data){
     //     data = data.split('\n');
     // //     data.pop()

@@ -3,20 +3,14 @@ var industry = require('../../db/models/index').industry;
 //
 // // const JobPost = require('../../db/models/jobPost').JobPost
 exports.getIndustryList = (req, res) => {
-//   // Quick example
-//   // var query = req.body
-//   // sequelize.query("SELECT * FROM industry").then(myTableRows => {
-//   models.jobPost.findAll().then((users)=>{
-//     res.send(users)
-//   })
-    // res.send("myTableRows")
-  // })
-  // JobPost.findByPrimary(1)
-  //  .then((result)=>{
-  //    })
-  // sequelize.getQueryInterface().showAllTables().then( function(data){
-  //   console.log(data)
-  // } )
+  var list = []
+  industry.findAll().then( data => {
+      res.send(data.map(ind => {
+        return ind.industryName
+      }))
+      // list.push(data.industryN)
+  })
+
 }
 exports.addIndustry = (req,res) => {
   var newIndustry = industry.build({

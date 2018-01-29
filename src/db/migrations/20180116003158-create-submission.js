@@ -9,25 +9,30 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       mediaContent: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       applyDate: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false
       },
       jobPostId:{
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'jobPosts'
         }
       },
-      status_id:{
+      statusId:{
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'statuses'
         }
       },
-      account_id:{
+      accountId:{
         type: Sequelize.INTEGER,
+        allowNull: false,
         references:{
           model: 'accounts'
         }

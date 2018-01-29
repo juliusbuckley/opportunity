@@ -9,10 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       businessStreamName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       industryId :{
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'industries'
         }

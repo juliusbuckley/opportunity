@@ -8,7 +8,9 @@ var multer = require('multer'); // v1.0.5
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-app.use(require('./api/routers/route.company'))
+app.use(require('./api/routers/route.login'))
+
+app.use(require('./api/routers/route.seekerUser'))
 
 app.use(require('./api/routers/route.jobpost'))
 

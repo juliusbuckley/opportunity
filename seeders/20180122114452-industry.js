@@ -6,31 +6,37 @@ module.exports = {
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
     */
-    return queryInterface.bulkInsert('industries', [{
+    queryInterface.bulkInsert('industries', [{
       industryName: 'Fashion',
+      id: 1,
       createdAt : new Date(),
       updatedAt : new Date()
     },
     {
+      id: 2,
       industryName: 'Art',
       createdAt : new Date(),
       updatedAt : new Date()
     },
     {
+      id: 3,
       industryName: 'Music',
       createdAt : new Date(),
       updatedAt : new Date()
     },
     {
+      id: 4,
       industryName: 'Film',
       createdAt : new Date(),
       updatedAt : new Date()
     },
     {
+      id: 5,
       industryName: 'Social Media',
       createdAt : new Date(),
       updatedAt : new Date()
       }], {});
+
 
   },
 
@@ -40,7 +46,7 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      return queryInterface.bulkDelete('Person', null, {});
     */
+    return queryInterface.bulkDelete('industries', null, {});
   }
 };

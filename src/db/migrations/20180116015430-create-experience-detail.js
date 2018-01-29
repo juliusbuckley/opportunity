@@ -9,34 +9,36 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       isCurrentJob: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        allowNull: false
       },
       startDate: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false
       },
       jobTitle: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       institutionName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       cityName: {
-        type: Sequelize.STRING,
-        allowNull: true
+        type: Sequelize.STRING
       },
       stateName: {
-        type: Sequelize.STRING,
-        allowNull: true
+        type: Sequelize.STRING
       },
       countryName: {
-        type: Sequelize.STRING,
-        allowNull: true
+        type: Sequelize.STRING
       },
       description: {
         type: Sequelize.STRING
       },
-      seeker_id: {
+      seekerId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'seekerUsers'
         }

@@ -9,16 +9,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       passwordSalt: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       passwordHash: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       membershipId : {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'memberships'
         }

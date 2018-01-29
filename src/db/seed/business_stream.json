@@ -3,392 +3,392 @@
     "model": "businessStream",
     "data": {
       "id": 1,
-      "businessStream_name": "Computer Software: Prepackaged Software",
-      "industry_id": 9
+      "businessStreamName": "Computer Software: Prepackaged Software",
+      "industryId": 9
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 2,
-      "businessStream_name": "Major Pharmaceuticals",
-      "industry_id": 3
+      "businessStreamName": "Major Pharmaceuticals",
+      "industryId": 3
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 3,
-      "businessStream_name": "Environmental Services",
-      "industry_id": 1
+      "businessStreamName": "Environmental Services",
+      "industryId": 1
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 4,
-      "businessStream_name": "Oil & Gas Production",
-      "industry_id": 10
+      "businessStreamName": "Oil & Gas Production",
+      "industryId": 10
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 5,
-      "businessStream_name": "n/a",
-      "industry_id": 1
+      "businessStreamName": "n/a",
+      "industryId": 1
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 6,
-      "businessStream_name": "Biotechnology: Biological Products (No Diagnostic Substances)",
-      "industry_id": 6
+      "businessStreamName": "Biotechnology: Biological Products (No Diagnostic Substances)",
+      "industryId": 6
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 7,
-      "businessStream_name": "Environmental Services",
-      "industry_id": 1
+      "businessStreamName": "Environmental Services",
+      "industryId": 1
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 8,
-      "businessStream_name": "Major Banks",
-      "industry_id": 10
+      "businessStreamName": "Major Banks",
+      "industryId": 10
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 9,
-      "businessStream_name": "Industrial Machinery/Components",
-      "industry_id": 5
+      "businessStreamName": "Industrial Machinery/Components",
+      "industryId": 5
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 10,
-      "businessStream_name": "Other Consumer Services",
-      "industry_id": 7
+      "businessStreamName": "Other Consumer Services",
+      "industryId": 7
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 11,
-      "businessStream_name": "Real Estate Investment Trusts",
-      "industry_id": 10
+      "businessStreamName": "Real Estate Investment Trusts",
+      "industryId": 10
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 12,
-      "businessStream_name": "Apparel",
-      "industry_id": 2
+      "businessStreamName": "Apparel",
+      "industryId": 2
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 13,
-      "businessStream_name": "Computer Software: Prepackaged Software",
-      "industry_id": 6
+      "businessStreamName": "Computer Software: Prepackaged Software",
+      "industryId": 6
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 14,
-      "businessStream_name": "Precious Metals",
-      "industry_id": 7
+      "businessStreamName": "Precious Metals",
+      "industryId": 7
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 15,
-      "businessStream_name": "Metal Fabrications",
-      "industry_id": 4
+      "businessStreamName": "Metal Fabrications",
+      "industryId": 4
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 16,
-      "businessStream_name": "n/a",
-      "industry_id": 9
+      "businessStreamName": "n/a",
+      "industryId": 9
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 17,
-      "businessStream_name": "Other Specialty Stores",
-      "industry_id": 2
+      "businessStreamName": "Other Specialty Stores",
+      "industryId": 2
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 18,
-      "businessStream_name": "Property-Casualty Insurers",
-      "industry_id": 3
+      "businessStreamName": "Property-Casualty Insurers",
+      "industryId": 3
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 19,
-      "businessStream_name": "Investment Managers",
-      "industry_id": 5
+      "businessStreamName": "Investment Managers",
+      "industryId": 5
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 20,
-      "businessStream_name": "Medical/Dental Instruments",
-      "industry_id": 4
+      "businessStreamName": "Medical/Dental Instruments",
+      "industryId": 4
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 21,
-      "businessStream_name": "Telecommunications Equipment",
-      "industry_id": 6
+      "businessStreamName": "Telecommunications Equipment",
+      "industryId": 6
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 22,
-      "businessStream_name": "Major Banks",
-      "industry_id": 2
+      "businessStreamName": "Major Banks",
+      "industryId": 2
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 23,
-      "businessStream_name": "Major Pharmaceuticals",
-      "industry_id": 4
+      "businessStreamName": "Major Pharmaceuticals",
+      "industryId": 4
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 24,
-      "businessStream_name": "Business Services",
-      "industry_id": 6
+      "businessStreamName": "Business Services",
+      "industryId": 6
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 25,
-      "businessStream_name": "Biotechnology: Electromedical & Electrotherapeutic Apparatus",
-      "industry_id": 9
+      "businessStreamName": "Biotechnology: Electromedical & Electrotherapeutic Apparatus",
+      "industryId": 9
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 26,
-      "businessStream_name": "n/a",
-      "industry_id": 9
+      "businessStreamName": "n/a",
+      "industryId": 9
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 27,
-      "businessStream_name": "n/a",
-      "industry_id": 6
+      "businessStreamName": "n/a",
+      "industryId": 6
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 28,
-      "businessStream_name": "Electric Utilities: Central",
-      "industry_id": 5
+      "businessStreamName": "Electric Utilities: Central",
+      "industryId": 5
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 29,
-      "businessStream_name": "Commercial Banks",
-      "industry_id": 8
+      "businessStreamName": "Commercial Banks",
+      "industryId": 8
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 30,
-      "businessStream_name": "Water Supply",
-      "industry_id": 7
+      "businessStreamName": "Water Supply",
+      "industryId": 7
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 31,
-      "businessStream_name": "Major Banks",
-      "industry_id": 9
+      "businessStreamName": "Major Banks",
+      "industryId": 9
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 32,
-      "businessStream_name": "n/a",
-      "industry_id": 9
+      "businessStreamName": "n/a",
+      "industryId": 9
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 33,
-      "businessStream_name": "Investment Bankers/Brokers/Service",
-      "industry_id": 3
+      "businessStreamName": "Investment Bankers/Brokers/Service",
+      "industryId": 3
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 34,
-      "businessStream_name": "n/a",
-      "industry_id": 6
+      "businessStreamName": "n/a",
+      "industryId": 6
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 35,
-      "businessStream_name": "Diversified Commercial Services",
-      "industry_id": 8
+      "businessStreamName": "Diversified Commercial Services",
+      "industryId": 8
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 36,
-      "businessStream_name": "Industrial Machinery/Components",
-      "industry_id": 4
+      "businessStreamName": "Industrial Machinery/Components",
+      "industryId": 4
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 37,
-      "businessStream_name": "Department/Specialty Retail Stores",
-      "industry_id": 1
+      "businessStreamName": "Department/Specialty Retail Stores",
+      "industryId": 1
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 38,
-      "businessStream_name": "Beverages (Production/Distribution)",
-      "industry_id": 5
+      "businessStreamName": "Beverages (Production/Distribution)",
+      "industryId": 5
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 39,
-      "businessStream_name": "Plastic Products",
-      "industry_id": 2
+      "businessStreamName": "Plastic Products",
+      "industryId": 2
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 40,
-      "businessStream_name": "Business Services",
-      "industry_id": 9
+      "businessStreamName": "Business Services",
+      "industryId": 9
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 41,
-      "businessStream_name": "Farming/Seeds/Milling",
-      "industry_id": 8
+      "businessStreamName": "Farming/Seeds/Milling",
+      "industryId": 8
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 42,
-      "businessStream_name": "n/a",
-      "industry_id": 6
+      "businessStreamName": "n/a",
+      "industryId": 6
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 43,
-      "businessStream_name": "Major Pharmaceuticals",
-      "industry_id": 5
+      "businessStreamName": "Major Pharmaceuticals",
+      "industryId": 5
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 44,
-      "businessStream_name": "Building operators",
-      "industry_id": 6
+      "businessStreamName": "Building operators",
+      "industryId": 6
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 45,
-      "businessStream_name": "Natural Gas Distribution",
-      "industry_id": 7
+      "businessStreamName": "Natural Gas Distribution",
+      "industryId": 7
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 46,
-      "businessStream_name": "Real Estate",
-      "industry_id": 5
+      "businessStreamName": "Real Estate",
+      "industryId": 5
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 47,
-      "businessStream_name": "Farming/Seeds/Milling",
-      "industry_id": 1
+      "businessStreamName": "Farming/Seeds/Milling",
+      "industryId": 1
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 48,
-      "businessStream_name": "n/a",
-      "industry_id": 4
+      "businessStreamName": "n/a",
+      "industryId": 4
     }
   },
   {
     "model": "businessStream",
     "data": {
       "id": 49,
-      "businessStream_name": "Marine Transportation",
-      "industry_id": 2
+      "businessStreamName": "Marine Transportation",
+      "industryId": 2
     }
   }
 ]

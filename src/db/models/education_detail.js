@@ -1,19 +1,41 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var educationDetail = sequelize.define('educationDetail', {
-    certificateDegreeName: DataTypes.STRING,
-    major: DataTypes.STRING,
-    completionDate: DataTypes.DATE,
-    institutionName: DataTypes.STRING,
-    cityName: DataTypes.STRING,
-    stateName: DataTypes.STRING,
-    countryName: DataTypes.STRING,
-    description: DataTypes.STRING
+    certificateDegreeName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    major: {
+      type: DataTypes.STRING
+    },
+    completionDate: {
+      type: DataTypes.DATE
+    },
+    isCurrent:{
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    institutionName: {
+      type: DataTypes.STRING
+    },
+    cityName: {
+      type: DataTypes.STRING
+    },
+    stateName: {
+      type: DataTypes.STRING
+    },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING
+    }
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        educationDetail.belongsTo(models.seekerUser)
+        educationDetail.belongsTo(models.seekerUser, {allowNull: false})
       }
     }
   });

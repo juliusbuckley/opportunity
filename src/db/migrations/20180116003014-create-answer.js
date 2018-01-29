@@ -12,16 +12,19 @@ module.exports = {
         type: Sequelize.STRING
       },
       href: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       questionId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'questions'
         }
       },
       submissionId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'submissions'
         }

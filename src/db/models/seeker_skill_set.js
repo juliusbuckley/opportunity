@@ -4,9 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        seekerSkillSet.belongsTo(models.seekerUser)
-        seekerSkillSet.belongsTo(models.skillSet)
-        seekerSkillSet.belongsTo(models.skillSet)
+        seekerSkillSet.belongsTo(models.seekerUser, {allowNull: false})
+        seekerSkillSet.belongsTo(models.skillSet, {allowNull: false})
       }
     }
   });

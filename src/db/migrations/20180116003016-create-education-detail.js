@@ -9,36 +9,38 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       certificateDegreeName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       major: {
-        type: Sequelize.STRING,
-        allowNull: true
+        type: Sequelize.STRING
       },
       completionDate: {
         type: Sequelize.DATE
+      },
+      isCurrent:{
+        type: Sequelize.BOOLEAN,
+        allowNull: false
       },
       institutionName: {
         type: Sequelize.STRING
       },
       cityName: {
-        type: Sequelize.STRING,
-        allowNull: true
+        type: Sequelize.STRING
       },
       stateName: {
-        type: Sequelize.STRING,
-        allowNull: true
+        type: Sequelize.STRING
       },
       country: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
       },
       description: {
-        type: Sequelize.STRING,
-        allowNull: true
+        type: Sequelize.STRING
       },
       seeker_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'seekerUsers'
         }

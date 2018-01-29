@@ -9,10 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       groupName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       planLevel: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       relatedAccountId: {
         type: Sequelize.INTEGER,

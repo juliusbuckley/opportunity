@@ -9,10 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       companyImage: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       accountId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model:'accounts'
         }

@@ -1,8 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var submission = sequelize.define('submission', {
-    mediaContent: DataTypes.STRING,
-    applyDate: DataTypes.DATE
+    mediaContent: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    applyDate: {
+      type: DataTypes.DATE,
+      allowNull: false
+    }
   }, {
     classMethods: {
       associate: function(models) {

@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a69c77bd55cc45b7fefe"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "232c94966547effe7e0a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -827,37 +827,21 @@ if(true) {
 /***/ "./src/api/controllers/controller.account.js":
 /***/ (function(module, exports, __webpack_require__) {
 
-var businessStream = __webpack_require__("./src/db/models/index.js").businessStream;
-// var models = require('../../db/migrations')
-//
-// // const JobPost = require('../../db/models/jobPost').JobPost
+var account = __webpack_require__("./src/db/models/index.js").account;
+
+
 exports.getAccount  = (req, res) => {
-//   // Quick example
-//   // var query = req.body
-//   // sequelize.query("SELECT * FROM industry").then(myTableRows => {
-//   models.jobPost.findAll().then((users)=>{
-//     res.send(users)
-//   })
-    // res.send("myTableRows")
-  // })
-  // JobPost.findByPrimary(1)
-  //  .then((result)=>{
-  //    })
-  // sequelize.getQueryInterface().showAllTables().then( function(data){
-  //   console.log(data)
-  // } )
-  businessStream.findAll().then((data)=>{
+
+  account.findAll().then((data)=>{
     res.send(data)
   })
 }
 exports.addAccount = (req,res) => {
   console.log(req.body)
-  // var newAccount = businessStream.build({
-  //   businessStream_name: 'Math1',
-  //   industryIdd: 1
-  // });
-  // newAccount.save().then(function() {
+  res.send(account.build(req.body).getInfo())
+  // account.create(req.body).then((data) =>{
   //   // Do stuffs after data persists
+  //   res.send(data)
   // })
 }
 
@@ -873,51 +857,18 @@ var businessStream = __webpack_require__("./src/db/models/index.js").businessStr
 // // const JobPost = require('../../db/models/jobPost').JobPost
 exports.getBusinessStream  = (req, res) => {
 //   // Quick example
-//   // var query = req.body
-//   // sequelize.query("SELECT * FROM industry").then(myTableRows => {
-//   models.jobPost.findAll().then((users)=>{
-//     res.send(users)
-//   })
-    // res.send("myTableRows")
-  // })
-  // JobPost.findByPrimary(1)
-  //  .then((result)=>{
-  //    })
-  // sequelize.getQueryInterface().showAllTables().then( function(data){
-  //   console.log(data)
-  // } )
   businessStream.findAll().then((data)=>{
     res.send(data)
   })
 }
 exports.addBusinessStream = (req,res) => {
   var newStream = businessStream.build({
-  businessStream_name: 'Math1',
-  industryIdd: 1
-});
-newStream.save().then(function() {
-  // Do stuffs after data persists
-})
-}
-
-
-/***/ }),
-
-/***/ "./src/api/controllers/controller.company.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-const sequelize = __webpack_require__("./src/db/models/index.js")
-
-exports.getCompany = (req, res) => {
-  // Quick example
-  // var query = req.body
-  sequelize.query("SELECT * FROM company").then(myTableRows => {
-    res.send(myTableRows)
+    businessStreamName: 'Math1',
+    industryId: 1
+  });
+  newStream.save().then(function() {
+    // Do stuffs after data persists
   })
-
-  // sequelize.getQueryInterface().showAllTables().then( function(data){
-  //   console.log(data)
-  // } )
 }
 
 
@@ -931,20 +882,14 @@ var industry = __webpack_require__("./src/db/models/index.js").industry;
 //
 // // const JobPost = require('../../db/models/jobPost').JobPost
 exports.getIndustryList = (req, res) => {
-//   // Quick example
-//   // var query = req.body
-//   // sequelize.query("SELECT * FROM industry").then(myTableRows => {
-//   models.jobPost.findAll().then((users)=>{
-//     res.send(users)
-//   })
-    // res.send("myTableRows")
-  // })
-  // JobPost.findByPrimary(1)
-  //  .then((result)=>{
-  //    })
-  // sequelize.getQueryInterface().showAllTables().then( function(data){
-  //   console.log(data)
-  // } )
+  var list = []
+  industry.findAll().then( data => {
+      res.send(data.map(ind => {
+        return ind.industryName
+      }))
+      // list.push(data.industryN)
+  })
+
 }
 exports.addIndustry = (req,res) => {
   var newIndustry = industry.build({
@@ -959,30 +904,65 @@ newIndustry.save().then(function() {
 /***/ }),
 
 /***/ "./src/api/controllers/controller.jobpost.js":
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// const sequelize = require('../../db/index')
-// var db = require('../../db/models/index'),
-//   sequelize = db.sequelize,
-//   Sequelize = db.Sequelize;
-// const JobPost = require('../../db/migrations/jobPost').JobPost
-exports.getJob = (req, res) => {
+const jobPost = __webpack_require__("./src/db/models/index.js").jobPost
+const account = __webpack_require__("./src/db/models/index.js").account
+
+exports.getAccountJobs = (req, res) => {
+
+  account.find({id:req.params.accountId}).then(acc =>{
+    acc.getJobPosts().then(data =>{
+      console.log(data)
+      res.send(data)
+    })
+  })
+}
+exports.getJob = (req,res) => {
+  jobPost.find({id: req.params.jobId}).then(job =>{
+    res.send(job)
+  })
+}
+
+
+/***/ }),
+
+/***/ "./src/api/controllers/controller.login.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+const login = __webpack_require__("./src/db/models/index.js").login
+
+exports.getLogin = (req, res) => {
   // Quick example
   // var query = req.body
-  // sequelize.on("SELECT * FROM jobPost").then(myTableRows => {
-    // res.send("myTableRows")
-  // }).catch((err) => {
-  //   console.log(err)
-  // // })
-  // JobPost.findAll()
-  //   .then((result)=>{
-  //     res.send(result)
-  //     })
+  login.findAll().then((data) => {
+    res.send(data)
+  })
+}
 
-      // console.log("result")
-  // sequelize.getQueryInterface().showAllTables().then( function(data){
-  //   console.log(data)
-  // } )
+
+/***/ }),
+
+/***/ "./src/api/controllers/controller.seeker-user.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+var seekerUser = __webpack_require__("./src/db/models/index.js").seekerUser;
+
+
+exports.getSeekerUser  = (req, res) => {
+  // seeker
+  // res.send(seekerUser.build(req.body).getInfo)
+  console.log(req.params.userName)
+  seekerUser.find({username:req.params.userName}).then((seeker)=>{
+    res.send(seeker.getInfo())
+  })
+}
+exports.addSeekerUser = (req,res) => {
+  console.log(req.body)
+  var seeker = seekerUser.build(req.body)
+  seeker.save().then(() =>{
+    res.send(seeker.getInfo())
+  })
 }
 
 
@@ -1018,26 +998,13 @@ module.exports = Router;
 
 /***/ }),
 
-/***/ "./src/api/routers/route.company.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-const Router = __webpack_require__("express").Router();
-const companyController = __webpack_require__("./src/api/controllers/controller.company.js");
-
-Router.get("/company", companyController.getCompany);
-
-module.exports = Router;
-
-
-/***/ }),
-
 /***/ "./src/api/routers/route.industry.js":
 /***/ (function(module, exports, __webpack_require__) {
 
 const Router = __webpack_require__("express").Router();
 const industryController = __webpack_require__("./src/api/controllers/controller.industry.js");
 
-// Router.get("/industry", industryController.getIndustryList);
+Router.get("/industry", industryController.getIndustryList);
 
 Router.post("/industry", industryController.addIndustry);
 
@@ -1052,7 +1019,37 @@ module.exports = Router;
 const Router = __webpack_require__("express").Router();
 const jobController = __webpack_require__("./src/api/controllers/controller.jobpost.js");
 
-Router.get("/job", jobController.getJob);
+Router.get("/job/:jobId", jobController.getJob);
+
+Router.get("/account/:accountId/jobs/", jobController.getAccountJobs);
+
+module.exports = Router;
+
+
+/***/ }),
+
+/***/ "./src/api/routers/route.login.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+const Router = __webpack_require__("express").Router();
+const loginController = __webpack_require__("./src/api/controllers/controller.login.js");
+
+Router.get("/login", loginController.getLogin);
+
+module.exports = Router;
+
+
+/***/ }),
+
+/***/ "./src/api/routers/route.seekerUser.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+const Router = __webpack_require__("express").Router();
+const seekerUserController = __webpack_require__("./src/api/controllers/controller.seeker-user.js");
+
+Router.get("/search-user/:userName", seekerUserController.getSeekerUser);
+
+Router.post("/seeker-user", seekerUserController.addSeekerUser);
 
 module.exports = Router;
 
@@ -1079,7 +1076,7 @@ var basename  = path.basename(__filename);
 var env       =  'development' || "postgres://vikozotg:GwwLg13EsvTH_oo80blP1oXRai40_6Kz@baasu.db.elephantsql.com:5432/vikozotg";
 var config    = __webpack_require__("./src/db/config/config.json")
 var db        = {};
-
+// var seed = require('../seed')
 var sequelize = new Sequelize("postgres://vikozotg:GwwLg13EsvTH_oo80blP1oXRai40_6Kz@baasu.db.elephantsql.com:5432/vikozotg", config.production);
 
 fs
@@ -1100,55 +1097,13 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-// db.group.belongsTo(db.account,{as:'related_account'})
-// db.group.hasMany(db.membership, {as: 'related_group'})
-// db.account.hasMany(db.companyImage)
-// db.account.hasMany(db.jobPost)
-// db.account.hasMany(db.membership)
-// db.account.hasOne(db.membership, {as: 'related_account_id'})
-// db.answer.belongsTo(db.question)
-// db.answer.belongsTo(db.submission)
-// db.educationDetail.belongsTo(db.seekerUser)
-// db.experienceDetail.belongsTo(db.seekerUser)
-// db.industry.hasMany(db.businessStream)
-// db.interview.hasMany(db.question)
-// db.jobPostSkillSet.belongsTo(db.skillSet)
-// // db.jobPostSkillSet.belongsTo(db.jobPost)
-// db.jobPost.belongsTo(db.interview)
-// db.jobPost.belongsTo(db.jobLocation)
-// db.jobPost.hasMany(db.jobPostSkillSet)
-// db.jobPost.belongsTo(db.jobType)
-// db.jobPost.belongsTo(db.account)
-// db.jobPost.belongsTo(db.membership,{as: 'from_id'})
-// db.membership.hasMany(db.jobPost,{as: 'CreatedJobPosts'})
-// db.membership.hasOne(db.companyUser)
-// db.membership.belongsTo(db.account)
-// db.membership.hasOne(db.message, {as: 'from_id'})
-// db.message.belongsTo(db.jobPost)
-// db.questionOrder.belongsTo(db.question)
-// db.question.belongsTo(db.account)
-// db.question.belongsTo(db.jobPost)
-// db.question.belongsTo(db.questionType)
-// db.seekerSkillSet.belongsTo(db.seekerUser)
-// db.seekerSkillSet.belongsTo(db.skillSet)
-// db.seekerSkillSet.belongsTo(db.skillSet)
-// db.seekerUser.hasOne(db.membership, {as: 'related_seeker_id'})
-// // db.seekerUser.belongshTo(db.membership)
-// db.seekerUser.hasMany(db.submission,{as: 'Submissions'})
-// db.submission.belongsTo(db.jobPost)
-// db.submission.belongsTo(db.status)
-// db.submission.belongsTo(db.account)
-
 
 db.sequelize.sync().then(()=>{
   console.log('done big fella')
-  // console.log()
 
 }).catch((err)=>{
   console.log('failed big fella' + err)
 })
-
-// console.log(db)
 
 module.exports = db;
 
@@ -1169,7 +1124,9 @@ var multer = __webpack_require__("multer"); // v1.0.5
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-app.use(__webpack_require__("./src/api/routers/route.company.js"))
+app.use(__webpack_require__("./src/api/routers/route.login.js"))
+
+app.use(__webpack_require__("./src/api/routers/route.seekerUser.js"))
 
 app.use(__webpack_require__("./src/api/routers/route.jobpost.js"))
 
