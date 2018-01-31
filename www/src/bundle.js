@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "232c94966547effe7e0a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b69271eed22fcb62185f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -852,15 +852,29 @@ exports.addAccount = (req,res) => {
 /***/ (function(module, exports, __webpack_require__) {
 
 var businessStream = __webpack_require__("./src/db/models/index.js").businessStream;
+var industry = __webpack_require__("./src/db/models/index.js").industry;
 // var models = require('../../db/migrations')
 //
 // // const JobPost = require('../../db/models/jobPost').JobPost
+exports.getBusinessStreamByIndustry  = (req, res) => {
+  industry.find({industryName:req.params.industry}).then(data=>{
+    data.getBusinessStreams().then(streams =>{
+      res.send(streams.map(stream=>{
+        return {
+          streamName: stream.businessStreamName,
+          id: stream.id
+        }
+      }))
+    })
+  })
+}
 exports.getBusinessStream  = (req, res) => {
 //   // Quick example
   businessStream.findAll().then((data)=>{
     res.send(data)
   })
 }
+
 exports.addBusinessStream = (req,res) => {
   var newStream = businessStream.build({
     businessStreamName: 'Math1',
@@ -898,6 +912,40 @@ exports.addIndustry = (req,res) => {
 newIndustry.save().then(function() {
   // Do stuffs after data persists
 })
+}
+
+
+/***/ }),
+
+/***/ "./src/api/controllers/controller.interview.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+var interview = __webpack_require__("./src/db/models/index.js").interview;
+var jobPost = __webpack_require__("./src/db/models/index.js").jobPost;
+
+
+exports.getInterview  = (req, res) => {
+  jobPost.find({id:req.params.jobPost}).then(job => {
+    job.getInterview().then(data =>{
+      res.send(data)
+    })
+  })
+}
+exports.createInterview = (req,res) => {
+  console.log(req.body)
+  interview.build(req.body).save()
+  // account.create(req.body).then((data) =>{
+  //   // Do stuffs after data persists
+  //   res.send(data)
+  // })
+}
+exports.editInterview = (req,res) => {
+  console.log(req.body)
+  interview.build(req.body).save()
+  // account.create(req.body).then((data) =>{
+  //   // Do stuffs after data persists
+  //   res.send(data)
+  // })
 }
 
 
@@ -991,6 +1039,8 @@ const businessStreamController = __webpack_require__("./src/api/controllers/cont
 
 Router.get("/businessStream", businessStreamController.getBusinessStream);
 
+Router.get("/businessStream/:industry", businessStreamController.getBusinessStreamByIndustry);
+
 Router.post("/businessStream", businessStreamController.addBusinessStream);
 
 module.exports = Router;
@@ -1007,6 +1057,25 @@ const industryController = __webpack_require__("./src/api/controllers/controller
 Router.get("/industry", industryController.getIndustryList);
 
 Router.post("/industry", industryController.addIndustry);
+
+module.exports = Router;
+
+
+/***/ }),
+
+/***/ "./src/api/routers/route.interview.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+const Router = __webpack_require__("express").Router();
+const interviewController = __webpack_require__("./src/api/controllers/controller.interview.js");
+
+Router.get("/job/:jobId/apply", interviewController.getInterview);
+
+Router.post("/job/:jobId/create", interviewController.createInterview);
+
+Router.post("/job/:jobId/edit", interviewController.editInterview);
+
+// Router.post("/businessStream", interviewController.addBusinessStream);
 
 module.exports = Router;
 
@@ -1047,9 +1116,9 @@ module.exports = Router;
 const Router = __webpack_require__("express").Router();
 const seekerUserController = __webpack_require__("./src/api/controllers/controller.seeker-user.js");
 
-Router.get("/search-user/:userName", seekerUserController.getSeekerUser);
+Router.get("/search/u/:userName", seekerUserController.getSeekerUser);
 
-Router.post("/seeker-user", seekerUserController.addSeekerUser);
+Router.post("/seeker/signup", seekerUserController.addSeekerUser);
 
 module.exports = Router;
 
@@ -1127,6 +1196,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(__webpack_require__("./src/api/routers/route.login.js"))
 
 app.use(__webpack_require__("./src/api/routers/route.seekerUser.js"))
+
+app.use(__webpack_require__("./src/api/routers/route.interview.js"))
 
 app.use(__webpack_require__("./src/api/routers/route.jobpost.js"))
 

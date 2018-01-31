@@ -1,8 +1,8 @@
 const Router = require("express").Router();
 const seekerUserController = require('../controllers/controller.seeker-user');
 
-Router.get("/search-user/:userName", seekerUserController.getSeekerUser);
+Router.get("/search/u/:userName", seekerUserController.getSeekerUser);
 
-Router.post("/seeker-user", seekerUserController.addSeekerUser);
+Router.post("/seeker/signup", seekerUserController.addSeekerUser);
 
 module.exports = Router;

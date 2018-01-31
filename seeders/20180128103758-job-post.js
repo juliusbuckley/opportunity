@@ -18,7 +18,6 @@ module.exports = {
       visibility: 'Public',
       jobType: 'Gig',
       fromId: 1,
-      interviewId: null,
       industryId:1,
       jobLocationId: 1,
       paymentAmount: null,
@@ -41,7 +40,6 @@ module.exports = {
       visibility: 'Public',
       jobType: 'Gig',
       fromId: 1,
-      interviewId: null,
       industryId:1,
       jobLocationId: 1,
       paymentAmount: null,
@@ -63,7 +61,7 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      return queryInterface.bulkDelete('Person', null, {});
     */
+    return queryInterface.bulkDelete('jobPosts', null, {});
   }
 };

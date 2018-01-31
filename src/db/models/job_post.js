@@ -19,12 +19,13 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        jobPost.belongsTo(models.interview,{allowNull: true})
+        // jobPost.belongsTo(models.interview,{allowNull: true})
         jobPost.belongsTo(models.jobLocation, {allowNull: false})
         jobPost.hasMany(models.jobPostSkillSet, {allowNull: false})
         jobPost.belongsTo(models.industry, {allowNull: false})
         jobPost.belongsTo(models.account, {allowNull: false})
         jobPost.belongsTo(models.membership,{as: 'from', allowNull: false})
+        jobPost.belongsToMany(models.question,{through: models.interview})
       }
     }
   });

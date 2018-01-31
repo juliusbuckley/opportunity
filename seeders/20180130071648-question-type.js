@@ -8,14 +8,9 @@ module.exports = {
 
       Example:
     */
-    return queryInterface.bulkInsert('jobLocations', [{
+    return queryInterface.bulkInsert('questionTypes', [{
       id: 1,
-      cityName: 'Silver Spring',
-      stateName: 'MD',
-      zipCode: 20904,
-      longitude: 123,
-      latitude: 123,
-      streetAddress: '14238 castle blvd',
+      questionTypeName: 'Video Timed',
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});
@@ -28,6 +23,6 @@ module.exports = {
 
       Example:
     */
-    return queryInterface.bulkDelete('jobLocations', null, {});
+    return queryInterface.bulkDelete('questionTypes', null, {});
   }
 };

@@ -10,24 +10,50 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     timeLimit: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull: false
     },
     videoHref: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    createdBy: {
+    fromId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'companyUsers'
+      }
+    },
+    accountId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'accounts'
+      }
+    },
+    questionTypeId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'questionTypes'
+      }
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
       allowNull: false
     }
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        question.belongsTo(models.account)
-        question.belongsTo(models.jobPost)
-        question.belongsTo(models.questionType)
+        question.belongsTo(models.account, {allowNull: false})
+        question.belongsTo(models.companyUser, {as: 'from', allowNull: false})
+        question.belongsToMany(models.jobPost,{through: models.interview})
+        question.belongsTo(models.questionType, {allowNull: false})
       }
     }
   });

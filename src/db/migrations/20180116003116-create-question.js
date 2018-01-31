@@ -17,16 +17,19 @@ module.exports = {
         allowNull: false
       },
       timeLimit: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.TIME,
         allowNull: false
       },
       videoHref: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      createdBy: {
+      fromId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'companyUsers'
+        }
       },
       createdAt: {
         allowNull: false,

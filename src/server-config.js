@@ -12,6 +12,8 @@ app.use(require('./api/routers/route.login'))
 
 app.use(require('./api/routers/route.seekerUser'))
 
+app.use(require('./api/routers/route.interview'))
+
 app.use(require('./api/routers/route.jobpost'))
 
 app.use(require('./api/routers/route.industry'))
