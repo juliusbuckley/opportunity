@@ -8,11 +8,34 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      media_content: {
-        type: Sequelize.STRING
+      mediaContent: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      apply_date: {
-        type: Sequelize.DATE
+      applyDate: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      jobPostId:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'jobPosts'
+        }
+      },
+      statusId:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'statuses'
+        }
+      },
+      accountId:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references:{
+          model: 'accounts'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -25,6 +48,11 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('submissions');
+    return queryInterface.dropTable('submissions', {
+
+        force: true,
+        cascade: true,
+
+    });
   }
 };

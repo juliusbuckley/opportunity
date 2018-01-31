@@ -8,29 +8,41 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      company_name: {
-        type: Sequelize.STRING
+      companyName: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      zip_code: {
-        type: Sequelize.INTEGER
+      zipCode: {
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
-      city_name: {
-        type: Sequelize.STRING
+      cityName: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      state_name: {
-        type: Sequelize.STRING
+      stateName: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      zip_code: {
-        type: Sequelize.INTEGER
+      streetAddress: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      street_address: {
-        type: Sequelize.STRING
+      profileDescription: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      profile_description: {
-        type: Sequelize.STRING
+      establishmentYear: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      establishment_date: {
-        type: Sequelize.DATE
+      membershipId:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'memberships',
+          key:'id'
+        }
       },
       createdAt: {
         allowNull: false,

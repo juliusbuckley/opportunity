@@ -1,15 +1,16 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('skill_sets', {
+    return queryInterface.createTable('skillSets', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      skill_set_name: {
-        type: Sequelize.STRING
+      skillSetName: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -22,6 +23,11 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('skill_sets');
+    return queryInterface.dropTable('skillSets', {
+
+        force: true,
+        cascade: true,
+
+    });
   }
 };

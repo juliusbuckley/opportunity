@@ -1,13 +1,17 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var question_order = sequelize.define('question_order', {
-    order: DataTypes.INTEGER
+  var questionOrder = sequelize.define('questionOrder', {
+    order: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        questionOrder.belongsTo(models.question)
       }
     }
   });
-  return question_order;
+  return questionOrder;
 };

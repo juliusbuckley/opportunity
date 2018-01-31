@@ -1,7 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var question_type = sequelize.define('question_type', {
-    question_type_name: DataTypes.STRING
+  var questionType = sequelize.define('questionType', {
+    questionTypeName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     classMethods: {
       associate: function(models) {
@@ -9,5 +12,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  return question_type;
+  return questionType;
 };

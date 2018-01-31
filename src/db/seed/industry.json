@@ -1,68 +1,68 @@
 [{
-  "model":"industry",
+  "model":"industries",
   "data":
     {
       "id":1,
       "industry_name":"Music"
     }
 },{
-  "model":"industry",
+  "model":"industries",
   "data":
     {
       "id":2,
       "industry_name":"Fashion"
     }
 },{
-  "model":"industry",
+  "model":"industries",
   "data":
     {
       "id":3,
       "industry_name":"Sports"
     }
 },{
-  "model":"industry",
+  "model":"industries",
   "data":
     {
       "id":4,
       "industry_name":"Film"
     }
 },{
-  "model":"industry",
+  "model":"industries",
   "data":
     {
       "id":5,
       "industry_name":"Social Media"
     }
 },{
-  "model":"industry",
+  "model":"industries",
   "data":
     {
       "id":6,
       "industry_name":"Visual Artists"
     }
 },{
-  "model":"industry",
+  "model":"industries",
   "data":
     {
       "id":7,
       "industry_name":"Dance"
     }
 },{
-  "model":"industry",
+  "model":"industries",
   "data":
     {
       "id":8,
       "industry_name":"Public Relations"
     }
 },{
-  "model":"industry",
+  "model":"industries",
   "data":
     {
       "id":9,
       "industry_name":"Comedy"
     }
 },{
-    "model":"industry",
+    "model":"industries",
     "data":
     {
       "id":10,

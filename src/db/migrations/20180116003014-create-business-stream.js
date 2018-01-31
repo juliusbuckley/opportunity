@@ -1,15 +1,23 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('business_streams', {
+    return queryInterface.createTable('businessStreams', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      business_stream_name: {
-        type: Sequelize.STRING
+      businessStreamName: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      industryId :{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'industries'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -22,6 +30,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('business_streams');
+    return queryInterface.dropTable('businessStreams');
   }
 };

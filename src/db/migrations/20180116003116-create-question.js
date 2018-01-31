@@ -8,20 +8,28 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      question_text: {
-        type: Sequelize.STRING
+      questionText: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      question_tip: {
-        type: Sequelize.STRING
+      questionTip: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      time_limit: {
-        type: Sequelize.INTEGER
+      timeLimit: {
+        type: Sequelize.TIME,
+        allowNull: false
       },
-      video_href: {
-        type: Sequelize.STRING
+      videoHref: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      created_by: {
-        type: Sequelize.INTEGER
+      fromId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'companyUsers'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +42,11 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('questions');
+    return queryInterface.dropTable('questions', {
+
+        force: true,
+        cascade: true,
+
+    });
   }
 };

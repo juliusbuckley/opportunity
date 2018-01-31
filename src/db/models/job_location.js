@@ -1,10 +1,30 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var job_location = sequelize.define('job_location', {
-    city_name: DataTypes.STRING,
-    state_name: DataTypes.STRING,
-    zip_code: DataTypes.INTEGER,
-    street_address: DataTypes.STRING
+  var jobLocation = sequelize.define('jobLocation', {
+    cityName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    stateName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    zipCode: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    streetAddress: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    longitude: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    latitude: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {
     classMethods: {
       associate: function(models) {
@@ -12,5 +32,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  return job_location;
+  return jobLocation;
 };

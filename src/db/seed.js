@@ -1,7 +1,8 @@
 const fs = require('fs')
 const db = require('./models/index')
 const sequelize_fixtures = require('sequelize-fixtures')
-const models = require('./seed/index')
+const models = require('./models/index')
+// console.log(models)
 const seeds = require('seedquelize')
 const path = require('path')
 
@@ -9,23 +10,23 @@ const path = require('path')
 let modules = {
   'industry': db.industry,
   // 'answer': db.answer,
-  'business_stream': db.business_stream,
+  'businessStream': db.businessStream,
   'company': db.company,
-  'company_image': db.company_image,
-  // 'education_detail': db.education_detail,
-  // 'experience_detail': db.experience_detail,
+  'companyImage': db.companyImage,
+  // 'educationDetail': db.educationDetail,
+  // 'experienceDetail': db.experienceDetail,
   // 'interview': db.interview,
-  'job_location': db.job_location,
-  // 'job_post_activity': db.job_post_activity,
-  // 'job_post_skill_set': db.job_post_skill_set,
-  'job_type': db.job_type,
-  'job_post': db.job_post,
+  'jobLocation': db.jobLocation,
+  // 'jobPost_activity': db.jobPost_activity,
+  // 'jobPostSkillSet': db.jobPostSkillSet,
+  'jobType': db.jobType,
+  'jobPost': db.jobPost,
   // 'message': db.message,
-  // 'question_type': db.question_type,
+  // 'questionType': db.questionType,
   // 'question': db.question,
   // 'seeker_profile': db.seeker_profile,
-  // 'seeker_skill_set': db.seeker_skill_set,
-  // 'skill_set': db.skill_set,
+  // 'seekerSkillSet': db.seekerSkillSet,
+  // 'skillSet': db.skillSet,
   // 'status': db.status,
   // 'submission': db.submission,
   'user_type': db.user_type,
@@ -35,6 +36,8 @@ let modules = {
 }
   // sequelize_fixtures.loadFile(__dirname+'/seed/'+Object.keys(modules)[0]+'.json', models)
   // .then(()=>{
+  //   console.log('freshly')
+  // })
   //   console.log('breeming')
   //   sequelize_fixtures.loadFile(__dirname+'/seed/'+Object.keys(modules)[1]+'.json', models)
   //   .then(()=>{
@@ -70,7 +73,7 @@ let modules = {
 const seed = function(model){
   // console.log('here')
   // if(model){
-    fs.readFile(path.join(__dirname+'/seed/'+model+'.json'),'utf8',(err,data)=>{
+    fs.readFile(path.join(__dirname+'/seed/industry.json'),'utf8',(err,data)=>{
     //   if(data){
     //     data = data.split('\n');
     // //     data.pop()
@@ -115,24 +118,24 @@ const seed = function(model){
   // specify file encoding (default utf8)
 module.exports = seed
 // seed('answer')
-// seed('business_stream') //data available
+// seed('businessStream') //data available
 // seed('company') //data available
-// seed('company_image') //data available
-// seed('education_detail')
-// seed('experience_detail')
+// seed('companyImage') //data available
+// seed('educationDetail')
+// seed('experienceDetail')
 // seed('industry') //data available
 // seed('interview')
-// seed('job_location')
-// seed('job_post') //data available
-// seed('job_post_activity')
-// seed('job_post_skill_set')
-// seed('job_type') //data available
+// seed('jobLocation')
+// seed('jobPost') //data available
+// seed('jobPost_activity')
+// seed('jobPostSkillSet')
+// seed('jobType') //data available
 // seed('message')
 // seed('question')
-// seed('question_type')
+// seed('questionType')
 // seed('seeker_profile')
-// seed('seeker_skill_set')
-// seed('skill_set')
+// seed('seekerSkillSet')
+// seed('skillSet')
 // seed('status')
 // seed('submission')
 // seed('user_account') //data available

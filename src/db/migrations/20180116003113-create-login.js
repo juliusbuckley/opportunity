@@ -8,14 +8,24 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      user_name: {
-        type: Sequelize.STRING
+      userName: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      password_salt: {
-        type: Sequelize.STRING
+      passwordSalt: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      password_hash: {
-        type: Sequelize.STRING
+      passwordHash: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      membershipId : {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'memberships'
+        }
       },
       createdAt: {
         allowNull: false,

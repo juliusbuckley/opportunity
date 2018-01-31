@@ -1,56 +1,66 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('seeker_users', {
+    return queryInterface.createTable('seekerUsers', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      first_name: {
-        type: Sequelize.STRING
+      firstName: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      last_name: {
-        type: Sequelize.STRING
+      lastName: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      user_name: {
-        type: Sequelize.STRING
+      userName: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
       gender: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      isActive: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+      },
+      membershipId:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references:{
+          model: 'memberships'
+        }
+      },
+      smsNotificationActive: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+      },
+      emailNotificationActive: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+      },
+      dateOfBirth: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      userImage: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      twitterHandle: {
         type: Sequelize.STRING
       },
-      user_name: {
+      instragramHandle: {
         type: Sequelize.STRING
       },
-      is_active: {
-        type: Sequelize.BOOLEAN
-      },
-      sms_notification_active: {
-        type: Sequelize.BOOLEAN
-      },
-      email_notification_active: {
-        type: Sequelize.BOOLEAN
-      },
-      certificate_degree_name: {
+      websiteUrl: {
         type: Sequelize.STRING
       },
-      date_of_birth: {
-        type: Sequelize.DATE
-      },
-      user_image: {
-        type: Sequelize.STRING
-      },
-      twitter_handle: {
-        type: Sequelize.STRING
-      },
-      instragram_handle: {
-        type: Sequelize.STRING
-      },
-      website_url: {
-        type: Sequelize.STRING
-      },
-      facebook_url: {
+      facebookUrl: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -64,6 +74,11 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('seeker_users');
+    return queryInterface.dropTable('seekerUsers', {
+
+        force: true,
+        cascade: true,
+
+    });
   }
 };

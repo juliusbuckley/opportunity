@@ -1,45 +1,79 @@
 'use strict'
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('job_posts', {
+    return queryInterface.createTable('jobPosts', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      is_company_name_hidden: {
-        type: Sequelize.BOOLEAN
+      isCompanyNameHidden: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
       },
-      created_date: {
-        type: Sequelize.DATE
+      createdDate: {
+        type: Sequelize.DATE,
+        allowNull: false
       },
-      job_description: {
+      jobDescription: {
         type: Sequelize.STRING
       },
-      is_active: {
-        type: Sequelize.BOOLEAN
+      isPublished: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
       },
-      payment_amount: {
-        type: Sequelize.INTEGER
+      interviewId:{
+        type: Sequelize.INTEGER,
+        allowNull: true
       },
-      payment_type: {
-        type: Sequelize.STRING
+      paymentAmount: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+      },
+      paymentType: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      jobType: {
+        type: Sequelize.ENUM('Gig','Temporary','Full-Time'),
+        allowNull: false
       },
       duration: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      startDate: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      endDate: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      visibility : {
+        type: Sequelize.ENUM('Public','Private'),
+      },
+      tentativeEffortsRequiredInHours: {
         type: Sequelize.INTEGER
       },
-      start_date: {
-        type: Sequelize.DATE
+      jobStatus: {
+        type: Sequelize.ENUM('Created','Pending Approval','Aprroved','Sourcing','Interview','Offer','Filled','Cancelled'),
+        allowNull: false
       },
-      end_date: {
-        type: Sequelize.DATE
+      accountId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model:'accounts'
+        }
       },
-      tentative_efforts_required_in_hours: {
-        type: Sequelize.INTEGER
-      },
-      job_status: {
-        type: Sequelize.INTEGER
+      jobLocationId:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'jobLocations'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -52,6 +86,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('job_posts');
+    return queryInterface.dropTable('jobPosts');
   }
 };

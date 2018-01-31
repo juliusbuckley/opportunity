@@ -8,8 +8,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      industry_name: {
-        type: Sequelize.STRING
+      industryName: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -22,6 +23,11 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('industries');
+    return queryInterface.dropTable('industries', {
+
+        force: true,
+        cascade: true,
+
+    });
   }
 };

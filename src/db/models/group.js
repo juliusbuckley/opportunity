@@ -1,14 +1,23 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var group = sequelize.define('group', {
-    group_name: DataTypes.STRING,
-    plan_level: DataTypes.INTEGER
-  }, {
+    groupName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    planLevel: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
+  },{
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        group.hasMany(models.membership, {allowNull: false})
+        group.belongsTo(models.account, {allowNull: false})
       }
     }
   });
+
   return group;
 };

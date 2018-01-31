@@ -1,13 +1,17 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var business_stream = sequelize.define('business_stream', {
-    business_stream_name: DataTypes.STRING
+  var businessStream = sequelize.define('businessStream', {
+    businessStreamName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        businessStream.belongsTo(models.industry,{allowNull: false})
       }
     }
   });
-  return business_stream;
+  return businessStream;
 };

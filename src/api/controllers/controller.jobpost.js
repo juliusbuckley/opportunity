@@ -1,23 +1,17 @@
-// const sequelize = require('../../db/index')
-// var db = require('../../db/models/index'),
-//   sequelize = db.sequelize,
-//   Sequelize = db.Sequelize;
-// const JobPost = require('../../db/migrations/job_post').JobPost
-exports.getJob = (req, res) => {
-  // Quick example
-  // var query = req.body
-  // sequelize.on("SELECT * FROM job_post").then(myTableRows => {
-    // res.send("myTableRows")
-  // }).catch((err) => {
-  //   console.log(err)
-  // // })
-  // JobPost.findAll()
-  //   .then((result)=>{
-  //     res.send(result)
-  //     })
+const jobPost = require('../../db/models/index').jobPost
+const account = require('../../db/models/index').account
 
-      // console.log("result")
-  // sequelize.getQueryInterface().showAllTables().then( function(data){
-  //   console.log(data)
-  // } )
+exports.getAccountJobs = (req, res) => {
+
+  account.find({id:req.params.accountId}).then(acc =>{
+    acc.getJobPosts().then(data =>{
+      console.log(data)
+      res.send(data)
+    })
+  })
+}
+exports.getJob = (req,res) => {
+  jobPost.find({id: req.params.jobId}).then(job =>{
+    res.send(job)
+  })
 }

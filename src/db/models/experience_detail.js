@@ -1,20 +1,41 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var experience_detail = sequelize.define('experience_detail', {
-    is_current_job: DataTypes.BOOLEAN,
-    start_date: DataTypes.DATE,
-    job_title: DataTypes.STRING,
-    institution_name: DataTypes.STRING,
-    city: DataTypes.STRING,
-    state: DataTypes.STRING,
-    country: DataTypes.STRING,
-    description: DataTypes.STRING
+  var experienceDetail = sequelize.define('experienceDetail', {
+    isCurrentJob: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    startDate: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    jobTitle: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    institutionName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    cityName: {
+      type: DataTypes.STRING
+    },
+    stateName: {
+      type: DataTypes.STRING
+    },
+    countryName: {
+      type: DataTypes.STRING
+    },
+    description: {
+      type: DataTypes.STRING
+    }
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        experienceDetail.belongsTo(models.seekerUser, {allowNull: false})
       }
     }
   });
-  return experience_detail;
+  return experienceDetail;
 };
