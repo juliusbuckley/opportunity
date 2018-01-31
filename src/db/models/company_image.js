@@ -1,4 +1,3 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
   var companyImage = sequelize.define('companyImage', {
     companyImage: {
@@ -9,8 +8,10 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        companyImage.belongsTo(models.account)
       }
     }
   });
+
   return companyImage;
 };

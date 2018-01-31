@@ -1,4 +1,3 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
   var experienceDetail = sequelize.define('experienceDetail', {
     isCurrentJob: {
@@ -33,9 +32,12 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        experienceDetail.belongsTo(models.seekerUser, {allowNull: false})
+        experienceDetail.belongsTo(models.seekerUser, {
+          allowNull: false
+        })
       }
     }
   });
+
   return experienceDetail;
 };

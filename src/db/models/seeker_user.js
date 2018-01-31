@@ -1,4 +1,3 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
   var seekerUser = sequelize.define('seekerUser', {
     firstName: {
@@ -53,16 +52,21 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        seekerUser.belongsTo(models.membership, {allowNull:false})
+        seekerUser.belongsTo(models.membership, {
+          allowNull: false
+        })
         // seekerUser.belongsTo(models.membership)
-        seekerUser.hasMany(models.submission,{as: 'submissions'})
-      },
+        seekerUser.hasMany(models.submission, {
+          as: 'submissions'
+        })
+      }
     },
-    instanceMethods:{
-      getInfo: function(){
+    instanceMethods: {
+      getInfo: function() {
         return this.firstName + ' instagram handle is ' + this.instragramHandle;
       }
     }
   });
+
   return seekerUser;
 };

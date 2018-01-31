@@ -1,10 +1,10 @@
-const Router = require("express").Router();
+const { Router } = require('express')()
 const questionController = require('../controllers/controller.question');
 
 // Router.get("/job/:jobId/apply", questionController.getQuestion);
 
-Router.post("/question/create", questionController.createQuestion);
-Router.post("/question/edit/:jobId/:questionId", questionController.editQuestion);
+Router.post('/question/create', questionController.createQuestion);
+Router.post('/question/edit/:jobId/:questionId', questionController.editQuestion);
 
 // Router.post("/businessStream", interviewController.addBusinessStream);
 
