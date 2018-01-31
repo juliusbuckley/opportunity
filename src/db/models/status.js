@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
   var status = sequelize.define('status', {
     statusName: {
@@ -11,6 +12,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-
   return status;
 };

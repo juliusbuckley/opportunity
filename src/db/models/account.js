@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
   var account = sequelize.define('account', {
     companyName: {
@@ -32,24 +33,17 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        account.hasMany(models.companyImage, {
-          allowNull: false
-        })
-        account.hasMany(models.jobPost, {
-          allowNull: false
-        })
-        account.hasMany(models.membership, {
-          allowNull: false
-        })
+        account.hasMany(models.companyImage, {allowNull: false})
+        account.hasMany(models.jobPost, {allowNull: false})
+        account.hasMany(models.membership, {allowNull: false})
         // account.hasOne(models.membership, {as: 'relatedAccount'})
       }
     },
     instanceMethods: {
-      getInfo: function() {
-        return this.companyName + ' is located in ' + this.cityName;
+      getInfo: function (){
+        return this.companyName + ' is located in '+ this.cityName;
       }
     }
   });
-
   return account;
 };

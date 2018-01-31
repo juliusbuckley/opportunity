@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
   var message = sequelize.define('message', {
     bodyText: {
@@ -15,6 +16,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-
   return message;
 };
