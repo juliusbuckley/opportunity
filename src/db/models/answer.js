@@ -1,4 +1,3 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
   var answer = sequelize.define('answer', {
     textAnswer: {
@@ -7,15 +6,20 @@ module.exports = (sequelize, DataTypes) => {
     href: {
       type: DataTypes.STRING,
       allowNull: false
-    },
+    }
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        answer.belongsTo(models.question, {allowNull: false})
-        answer.belongsTo(models.submission, {allowNull: false})
+        answer.belongsTo(models.question, {
+          allowNull: false
+        })
+        answer.belongsTo(models.submission, {
+          allowNull: false
+        })
       }
     }
   });
+
   return answer;
 };

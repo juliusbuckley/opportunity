@@ -1,6 +1,6 @@
-const Router = require("express").Router();
+const { Router } = require('express')()
 const loginController = require('../controllers/controller.login');
 
-Router.get("/login", loginController.getLogin);
+Router.get('/login', loginController.getLogin);
 
 module.exports = Router;

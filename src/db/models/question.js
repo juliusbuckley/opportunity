@@ -1,4 +1,3 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
   var question = sequelize.define('question', {
     questionText: {
@@ -50,12 +49,22 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        question.belongsTo(models.account, {allowNull: false})
-        question.belongsTo(models.companyUser, {as: 'from', allowNull: false})
-        question.belongsToMany(models.jobPost,{through: models.interview})
-        question.belongsTo(models.questionType, {allowNull: false})
+        question.belongsTo(models.account, {
+          allowNull: false
+        })
+        question.belongsTo(models.companyUser, {
+          as: 'from',
+          allowNull: false
+        })
+        question.belongsToMany(models.jobPost, {
+          through: models.interview
+        })
+        question.belongsTo(models.questionType, {
+          allowNull: false
+        })
       }
     }
   });
+
   return question;
 };
