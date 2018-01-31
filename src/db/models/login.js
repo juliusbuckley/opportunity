@@ -1,3 +1,4 @@
+'use strict';
 const bcrypt = require('bcrypt')
 module.exports = (sequelize, DataTypes) => {
   var login = sequelize.define('login', {
@@ -20,17 +21,14 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     instanceMethods: {
-      generateHash: function(password) {
+      generateHash: function(password){
         try {
-          return bcrypt.hashSync(password, 8);
-        } catch (er) {
-          console.log('error: ' + er);
+            return bcrypt.hashSync(password, 8);
+        } catch (e) {
+            console.log('error: ' + e);
         }
-
-        return ''
       }
     }
   });
-
   return login;
 };

@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
   var membership = sequelize.define('membership', {
     accountPhoneNumber: {
@@ -15,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
-    seekerUserId: {
+    seekerUserId:{
       type: DataTypes.INTEGER
     }
   }, {
@@ -23,18 +24,13 @@ module.exports = (sequelize, DataTypes) => {
       associate: function(models) {
         // associations can be defined here
         // membership.hasMany(models.jobPost)
-        membership.hasOne(models.login, {
-          as: 'membershipId'
-        })
+        membership.hasOne(models.login, {as: 'membershipId'})
         membership.belongsTo(models.group)
         // membership.hasOne(models.seekerUser)
         // membership.belongsTo(models.account, {as: 'relatedAccount'})
-        membership.hasOne(models.message, {
-          as: 'fromId'
-        })
+        membership.hasOne(models.message, {as: 'fromId'})
       }
     }
   });
-
   return membership;
 };

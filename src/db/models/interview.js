@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
   var interview = sequelize.define('interview', {
     order: {
@@ -8,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-
+        // interview.belongsToMany(models.question)
+        // interview.belongsTo(models.jobPost, {allowNull: false})
       }
     }
   });
-
   return interview;
 };

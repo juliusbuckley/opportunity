@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
   var jobLocation = sequelize.define('jobLocation', {
     cityName: {
@@ -31,6 +32,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-
   return jobLocation;
 };

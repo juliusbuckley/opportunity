@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
   var questionOrder = sequelize.define('questionOrder', {
     order: {
@@ -12,6 +13,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-
   return questionOrder;
 };
