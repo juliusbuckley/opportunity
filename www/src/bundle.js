@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b69271eed22fcb62185f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "dbab65312bfe96dbaea9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -920,32 +920,47 @@ newIndustry.save().then(function() {
 /***/ "./src/api/controllers/controller.interview.js":
 /***/ (function(module, exports, __webpack_require__) {
 
-var interview = __webpack_require__("./src/db/models/index.js").interview;
-var jobPost = __webpack_require__("./src/db/models/index.js").jobPost;
+var {
+  interview,
+  jobPost
+  // question
+} = __webpack_require__("./src/db/models/index.js");
+// var jobPost = require('../../db/models/index').jobPost;
+// var question = require('../../db/models/index').question;
 
 
-exports.getInterview  = (req, res) => {
-  jobPost.find({id:req.params.jobPost}).then(job => {
-    job.getInterview().then(data =>{
-      res.send(data)
+exports.getInterview = (req, res) => {
+  jobPost.find({
+    id: req.params.jobId
+  }).then(job => {
+    job.getQuestions().then(data => {
+      res.send(data.sort((a, b) => {
+        return a.interview.order - b.interview.order
+      }))
     })
   })
 }
-exports.createInterview = (req,res) => {
-  console.log(req.body)
-  interview.build(req.body).save()
-  // account.create(req.body).then((data) =>{
-  //   // Do stuffs after data persists
-  //   res.send(data)
-  // })
+exports.addToInterview = (req, res) => {
+  jobPost.build(req.body.jobPost)
+    .addQuestion(req.body.question)
+    .then(success => {
+      console.log(success)
+      res.send(success)
+    })
 }
-exports.editInterview = (req,res) => {
+exports.createInterview = (req, res) => {
+  console.log(req.body)
+  interview.build(req.body).save;
+}
+exports.editInterview = (req, res) => {
   console.log(req.body)
   interview.build(req.body).save()
-  // account.create(req.body).then((data) =>{
-  //   // Do stuffs after data persists
-  //   res.send(data)
-  // })
+  /*
+  account.create(req.body).then((data) =>{
+  Do stuffs after data persists
+  res.send(data)
+  })
+  */
 }
 
 
@@ -959,15 +974,19 @@ const account = __webpack_require__("./src/db/models/index.js").account
 
 exports.getAccountJobs = (req, res) => {
 
-  account.find({id:req.params.accountId}).then(acc =>{
-    acc.getJobPosts().then(data =>{
+  account.find({
+    id: req.params.accountId
+  }).then(acc => {
+    acc.getJobPosts().then(data => {
       console.log(data)
       res.send(data)
     })
   })
 }
-exports.getJob = (req,res) => {
-  jobPost.find({id: req.params.jobId}).then(job =>{
+exports.getJob = (req, res) => {
+  jobPost.find({
+    id: req.params.jobId
+  }).then(job => {
     res.send(job)
   })
 }

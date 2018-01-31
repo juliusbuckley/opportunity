@@ -1,4 +1,3 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
   var educationDetail = sequelize.define('educationDetail', {
     certificateDegreeName: {
@@ -11,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     completionDate: {
       type: DataTypes.DATE
     },
-    isCurrent:{
+    isCurrent: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
@@ -35,9 +34,12 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        educationDetail.belongsTo(models.seekerUser, {allowNull: false})
+        educationDetail.belongsTo(models.seekerUser, {
+          allowNull: false
+        })
       }
     }
   });
+
   return educationDetail;
 };

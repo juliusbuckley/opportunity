@@ -1,4 +1,5 @@
 {
   "migrations-path": "src/db/migrations",
-  "models-path":"src/db/models"
+  "models-path":"src/db/models",
+  "seeders-path": "src/db/seeders"
 }
