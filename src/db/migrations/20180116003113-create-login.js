@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('logins', {
@@ -20,7 +19,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      membershipId : {
+      membershipId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {

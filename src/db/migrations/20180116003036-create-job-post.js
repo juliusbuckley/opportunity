@@ -1,4 +1,3 @@
-'use strict'
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('jobPosts', {
@@ -23,7 +22,7 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
-      interviewId:{
+      interviewId: {
         type: Sequelize.INTEGER,
         allowNull: true
       },

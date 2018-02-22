@@ -1,27 +1,32 @@
-var interview = require('../../db/models/index').interview;
-var jobPost = require('../../db/models/index').jobPost;
+var {
+  account,
+  interview,
+  jobPost
+} = require('../../db/models/index');
 
 
-exports.getInterview  = (req, res) => {
-  jobPost.find({id:req.params.jobPost}).then(job => {
-    job.getInterview().then(data =>{
+exports.getInterview = (req, res) => {
+  jobPost.find({
+    id: req.params.jobPost
+  }).then((job) => {
+    job.getInterview().then((data) => {
       res.send(data)
     })
   })
 }
-exports.createInterview = (req,res) => {
-  console.log(req.body)
+exports.createInterview = (req, res) => {
+  // console.log(req.body)
   interview.build(req.body).save()
-  // account.create(req.body).then((data) =>{
-  //   // Do stuffs after data persists
-  //   res.send(data)
-  // })
+  account.create(req.body).then((data) => {
+    // Do stuffs after data persists
+    res.send(data)
+  })
 }
-exports.editInterview = (req,res) => {
-  console.log(req.body)
+exports.editInterview = (req, res) => {
+  // console.log(req.body)
   interview.build(req.body).save()
-  // account.create(req.body).then((data) =>{
-  //   // Do stuffs after data persists
-  //   res.send(data)
-  // })
+  account.create(req.body).then((data) => {
+    // Do stuffs after data persists
+    res.send(data)
+  })
 }

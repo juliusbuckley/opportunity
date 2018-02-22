@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('businessStreams', {
@@ -12,7 +11,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      industryId :{
+      industryId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
