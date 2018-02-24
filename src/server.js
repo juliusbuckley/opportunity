@@ -1,4 +1,5 @@
-import http from 'http'
+const http = require('http')
+const webpack= require('webpack')
 require('dotenv').config()
 const app = require('./server-config')
 

@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('companyUsers', {
@@ -36,7 +35,7 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
-      membershipId : {
+      membershipId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {

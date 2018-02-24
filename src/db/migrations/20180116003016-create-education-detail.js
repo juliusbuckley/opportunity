@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('educationDetails', {
@@ -18,7 +17,7 @@ module.exports = {
       completionDate: {
         type: Sequelize.DATE
       },
-      isCurrent:{
+      isCurrent: {
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
@@ -38,7 +37,7 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
-      seeker_id: {
+      seekerId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {

@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('memberships', {
@@ -20,14 +19,14 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
-      accountId :{
+      accountId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'accounts'
         }
       },
-      groupId :{
+      groupId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -46,10 +45,8 @@ module.exports = {
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('memberships', {
-
         force: true,
-        cascade: true,
-
+        cascade: true
     });
   }
 };
