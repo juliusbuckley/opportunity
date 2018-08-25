@@ -29,6 +29,8 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('companyImages');
+    return queryInterface.dropTable('companyImages',{
+      truncate: true
+    });
   }
 };

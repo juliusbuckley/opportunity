@@ -29,6 +29,8 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('businessStreams');
+    return queryInterface.dropTable('businessStreams',{
+      truncate: true
+    });
   }
 };

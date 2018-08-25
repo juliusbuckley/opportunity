@@ -21,26 +21,29 @@ module.exports = {
   context: path.join(__dirname, 'app'),
   entry: [
     // 'webpack/hot/poll?1000',
-  //  './src/server',
+  'react-hot-loader/patch',
  './index.js'],
   output: {
     path: path.join(__dirname, 'www/src'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   node: {
     __dirname: true
   },
   watch: true,
-  target: 'node',
+  target: 'web',
   module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx?$/,
-      loader: 'babel-loader',
-      exclude: /node_modules/,
-      query: {
-        presets: ['es2015',
-         'react']
-      }
+      use: {
+        loader: 'babel-loader'
+      },
+      exclude: /node_modules/
+    },
+    {
+      test: /\.css$/,
+      use: [ 'style-loader', 'css-loader' ]
     }]
   },
   resolve: {
@@ -48,16 +51,17 @@ module.exports = {
       path.join('./node_modules')
     ]
   },
+
   plugins: [
     new StartServerPlugin('bundle.js'),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         'BUILD_TARGET': JSON.stringify('server'),
         'NODE_ENV': "'production'"
       }
+
     }),
     new Dotenv({
       path: './.env', // Path to .env file (this is the default)

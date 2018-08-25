@@ -3,11 +3,11 @@ module.exports = (sequelize, DataTypes) => {
   var membership = sequelize.define('membership', {
     accountPhoneNumber: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     accountEmailAddress: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         isEmail: true
       }

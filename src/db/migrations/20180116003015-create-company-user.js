@@ -53,6 +53,8 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('companyUsers');
+    return queryInterface.dropTable('companyUsers',{
+      truncate: true
+    });
   }
 };

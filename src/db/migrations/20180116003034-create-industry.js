@@ -24,7 +24,8 @@ module.exports = {
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('industries', {
         force: true,
-        cascade: true
+        cascade: true,
+        truncate: true
     });
   }
 };

@@ -9,7 +9,7 @@ module.exports = {
       },
       accountPhoneNumber: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       accountEmailAddress: {
         type: Sequelize.STRING,
@@ -21,14 +21,14 @@ module.exports = {
       },
       accountId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'accounts'
         }
       },
       groupId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'groups'
         }
@@ -46,6 +46,7 @@ module.exports = {
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('memberships', {
         force: true,
+        truncate: true,
         cascade: true
     });
   }

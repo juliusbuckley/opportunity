@@ -55,6 +55,8 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('educationDetails');
+    return queryInterface.dropTable('educationDetails',{
+      truncate: true
+    });
   }
 };

@@ -1,19 +1,24 @@
 import { connect } from 'react-redux';
-import UserProfile from '../components/UserProfile';
-import * as authSelectors from '../auth/Auth0Selectors'
+import { withRouter } from 'react-router-dom';
+import * as ProfileService from '../utils/ProfileService';
 
-const mapStateToProps = (state) => {
+import SeekerProfile from '../components/SeekerProfile'
+import React, { Component } from 'react';
 
+const mapStateToProps = ({ state }) => {
   return {
-    profile: authSelectors.getProfile(state),
-    error: authSelectors.getError(state),
+    profile: 'state.profile'
   }
 };
 
 // const mapDispatchToProps = (dispatch) => {
-
+//   membershipFetch: profile => dispatch(profileActions.membershipFetch(profile))
+//
 // }
 
-const ProfileContainer = connect(mapStateToProps, null)(UserProfile);
-
-export default ProfileContainer;
+export default withRouter(
+  connect(
+    mapStateToProps,
+    null
+  )(SeekerProfile)
+);

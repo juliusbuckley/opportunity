@@ -1,30 +1,29 @@
 import React from 'react';
+import 'core-js/fn/object/assign';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
-// import reducers from './reducers'
-import App from './components/App';
-import Bar from './components/Bar'
+import { browserHistory } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import ProfileService from './utils/ProfileService'
+import configureStore from './redux/configureStore';
+import App from './containers/App/App';
+import registerServiceWorker from './registerServiceWorker';
 
-// Add the reducer to your store on the `routing` key
-// const store = createStore(
-//   combineReducers({
-//     ...reducers,
-//     routing: routerReducer
-//   })
-// )
+const store = configureStore();
+let reactHotLoader = require('react-hot-loader')
+let AppContainer = reactHotLoader.AppContainer
 
-
-if (typeof window !== 'undefined') {
+// if (typeof window !== 'undefined') {
   document.addEventListener('DOMContentLoaded', function() {
     var app = document.getElementById('root')
     ReactDOM.render(
+    <Provider store={store}>
       <Router>
-        <div>
-          <Route exact path="/" component={App} />
-        </div>
-      </Router>,app);
-  });
-}
+        <App />
+      </Router>
+    </Provider>,app);
+    });
+// }
+
+export default store
